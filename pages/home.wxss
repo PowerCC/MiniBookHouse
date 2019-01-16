@@ -1,0 +1,149 @@
+/* pages/home.wxss */
+
+.container {
+  background-color: #fff;
+}
+
+.zhuanlan {
+  width: 25%;
+  float: left;
+}
+
+.zhuanlan .img {
+  width: 100%;
+  height: 100rpx;
+}
+
+.zhuanlan .text {
+  font-size: 25rpx;
+  text-align: center;
+}
+
+.cat {
+  width: 25%;
+  float: left;
+}
+
+.cat .text {
+  font-size: 28rpx;
+  text-align: center;
+  color: #696969;
+  margin: 10rpx;
+}
+
+.biaoti {
+  display: flex;
+  justify-content: space-between;
+  -webkit-display: flex;
+  -webkit-justify-content: space-between;
+  font-size: 36rpx;
+  height: 80rpx;
+}
+
+.more {
+  color: #696969;
+  font-size: 25rpx;
+  margin-top: 6rpx;
+}
+
+.item {
+  width: 31%;
+  float: left;
+  padding: 0rpx 8rpx 15rpx 8rpx;
+}
+
+.item .img {
+  width: 100%;
+  border: 1px solid #ECF0F1;
+  border-radius: 10rpx;
+}
+
+.item > .text {
+  padding: 10rpx 20rpx;
+  font-size: 24rpx;
+  text-align: center;
+}
+
+.item .d {
+  color: #c1c1c1;
+}
+
+.item .p {
+  color: #f60;
+}
+
+.item .o {
+  color: #c1c1c1;
+  text-decoration: line-through;
+}
+
+.best {
+  width: 47.5%;
+  float: left;
+  /* background-color: #fff; */
+  padding: 0rpx 8rpx 15rpx 8rpx;
+}
+
+.best .img {
+  width: 100%;
+  border: 1px solid #ECF0F1;
+  border-radius: 10rpx;
+}
+
+.best > .text {
+  padding: 10rpx 20rpx;
+  font-size: 24rpx;
+  text-align: center;
+}
+
+.best .d {
+  color: #c1c1c1;
+}
+
+.best .p {
+  color: #f60;
+}
+
+.search {
+  margin: 30rpx;
+  padding-right: 10rpx;
+  padding-left: 10rpx;
+  border: 1px solid #c5c5c5;
+  border-radius: 8px;
+  font-size: 24rpx;
+  height: 60rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items:center;
+  -webkit-display: flex;
+  -webkit-flex-direction: row;
+  -webkit-justify-content: center;
+}
+
+.search input {
+  width: 100%;
+  margin-left: 10rpx;
+}
+
+.search image {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.swiper {
+  margin: 10rpx 10rpx;
+  border: 4rpx solid #00f;
+}
+
+.best {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.clear {
+  clear: both;
+  height: 0;
+  overflow: hidden;
+}

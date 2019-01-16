@@ -1,0 +1,2 @@
+/* pages/boutiqueSectionList.wxss */
+@import '../pages/home.wxss';
