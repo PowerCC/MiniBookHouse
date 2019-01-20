@@ -1,16 +1,13 @@
 <view class='container' style='margin:30rpx 30rpx {{pageBottom}} 30rpx;'>
   <view class='category'>
     <view class='group'>
-      <view class='items' data-id='' data-pid='' bindtap='categoryTap'>全部</view>
-      <view class='items' wx:for='{{ageItems}}' wx:key='ageItems' data-id='{{item.id}}' data-pid='{{item.parent_id}}' bindtap='categoryTap'>{{item.name}}</view>
+      <view class='{{(item.selected) ? "item-selected" : "item-normal"}}' wx:for='{{ageItems}}' wx:key='ageItems' data-id='{{item.id}}' data-pid='0' data-index='{{index}}' bindtap='filterTap'>{{item.name}}</view>
     </view>
     <view class='group'>
-      <view class='items' data-id='' data-pid='' bindtap='categoryTap'>全部</view>
-      <view class='items' wx:for='{{languageItems}}' wx:key='languageItems' data-id='{{item.id}}' data-pid='{{item.parent_id}}' bindtap='categoryTap'>{{item.name}}</view>
+      <view class='{{(item.selected) ? "item-selected" : "item-normal"}}' wx:for='{{languageItems}}' wx:key='languageItems' data-id='{{item.id}}' data-pid='1' data-index='{{index}}' bindtap='filterTap'>{{item.name}}</view>
     </view>
     <view class='group'>
-      <view class='items' data-id='' data-pid='' bindtap='categoryTap'>全部</view>
-      <view class='items' wx:for='{{categoryItems}}' wx:key='categoryItems' data-id='{{item.id}}' data-pid='{{item.parent_id}}' bindtap='categoryTap'>{{item.name}}</view>
+      <view class='{{(item.selected) ? "item-selected" : "item-normal"}}' wx:for='{{categoryItems}}' wx:key='categoryItems' data-id='{{item.id}}' data-pid='2' data-index='{{index}}' bindtap='filterTap'>{{item.name}}</view>
     </view>
   </view>
   <view wx:for="{{goodsList}}" wx:key="goodsList" class="item" bindtap="openThis" data-id="{{item.id}}">
@@ -21,6 +18,9 @@
     </view>
   </view>
   <view class="clear"></view>
+  <view wx:if="{{pageEmpty}}" class="empty">
+    <view>没有符合的图书，换个筛选条件试试吧~</view>
+  </view>
   <view wx:if="{{pageEnd}}" class="end-page">
     <view>------</view>
     <view style="margin: 0rpx 20rpx;">到底了</view>

@@ -8,11 +8,21 @@ Page({
   data: {
     pageBottom: "30rpx",
     pageIndex: 1,
+
+    ageItemClass: "item-normal",
+    languageItemClass: "item-normal",
+    categoryItemClass: "item-normal",
+
     ageItems: [],
     languageItems: [],
     categoryItems: [],
-    categoryIds: [],
+
+    ageFilter: "0",
+    languageFilter: "0",
+    categoryFilter: "0",
+
     goodsList: [],
+    pageEmpty: false,
     pageEnd: false
   },
 
@@ -29,6 +39,7 @@ Page({
     });
 
     this.getCategoryListByParentId();
+    this.getGoodsListByFilters();
   },
 
   /**
@@ -70,7 +81,7 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function() {
-
+    this.getGoodsListByFilters();
   },
 
   /**
@@ -87,17 +98,46 @@ Page({
       url: app.globalData.baseApi + "outer/getCategoryListByParentId",
       method: "GET",
       data: {
-        pid: "1,2,3",
+        pid: "0",
       },
       success(res) {
         if (res.data.code == 200) {
           console.log(res.data);
 
           let result = res.data.data.result;
+
+          var ageResult = result.age;
+          var languageResult = result.language;
+          var classifyResult = result.classify;
+
+          for (let i = 0; i < ageResult.length; i++) {
+            if (i == 0) {
+              ageResult[i].selected = true;
+            } else {
+              ageResult[i].selected = false;
+            }
+          }
+
+          for (let i = 0; i < languageResult.length; i++) {
+            if (i == 0) {
+              languageResult[i].selected = true;
+            } else {
+              languageResult[i].selected = false;
+            }
+          }
+
+          for (let i = 0; i < classifyResult.length; i++) {
+            if (i == 0) {
+              classifyResult[i].selected = true;
+            } else {
+              classifyResult[i].selected = false;
+            }
+          }
+
           _this.setData({
-            ageItems: _this.data.ageItems.concat(result.p1),
-            languageItems: _this.data.languageItems.concat(result.p2),
-            categoryItems: _this.data.categoryItems.concat(result.p3)
+            ageItems: _this.data.ageItems.concat(ageResult),
+            languageItems: _this.data.languageItems.concat(languageResult),
+            categoryItems: _this.data.categoryItems.concat(classifyResult)
           });
         }
       },
@@ -108,14 +148,16 @@ Page({
     });
   },
 
-  getGoodsListByCategoryId: function() {
+  getGoodsListByFilters: function() {
     let _this = this;
     wx.showNavigationBarLoading();
     wx.request({
-      url: app.globalData.baseApi + "outer/getGoodsListByCategoryId",
+      url: app.globalData.baseApi + "outer/getGoodsListByFilters",
       method: "GET",
       data: {
-        cid: _this.data.categoryIds,
+        age: _this.data.ageFilter,
+        classify: _this.data.categoryFilter,
+        language: _this.data.languageFilter
       },
       success(res) {
         if (res.data.code == 200) {
@@ -123,16 +165,21 @@ Page({
 
           let result = res.data.data.result;
           var page = _this.data.pageIndex;
-          var pageEnd = true;
+          var pageEmpty = false;
+          var pageEnd = false;
 
-          if (result.length > 0) {
+          if (result.length == 0 && _this.data.goodsList.length == 0) {
+            pageEmpty = true;
+          } else if (result.length > 0) {
             page += 1;
+          } else if (result.length == 0) {
             pageEnd = false;
           }
 
           _this.setData({
             pageIndex: page,
             goodsList: _this.data.goodsList.concat(result),
+            pageEmpty: pageEmpty,
             pageEnd: pageEnd
           });
         }
@@ -144,18 +191,67 @@ Page({
     });
   },
 
-  categoryTap: function(e) {
+  filterTap: function(e) {
+    let _this = this;
+
+    let pid = e.currentTarget.dataset.pid;
     let cid = e.currentTarget.dataset.id;
+    let index = e.currentTarget.dataset.index;
 
-    console.log(cid);
+    console.log("pid: " + pid + " cid: " + cid + " index: " + index);
 
-    // var ids = this.data.categoryIds;
-    // ids.push(cid.toString());
+    var ageResult = _this.data.ageItems;
+    var languageResult = _this.data.languageItems;
+    var classifyResult = _this.data.categoryItems;
 
-    // this.setData({
-    //   categoryIds: ids
-    // })
+    if (pid == "0") {
+      for (let i = 0; i < ageResult.length; i++) {
+        if (i == index) {
+          ageResult[i].selected = true;
+        } else {
+          ageResult[i].selected = false;
+        }
+      }
 
-    // this.getGoodsListByCategoryId();
+      _this.data.ageFilter = cid;
+    } else if (pid == "1") {
+      for (let i = 0; i < languageResult.length; i++) {
+        if (i == index) {
+          languageResult[i].selected = true;
+        } else {
+          languageResult[i].selected = false;
+        }
+      }
+
+      _this.data.languageFilter = cid;
+    } else if (pid == "2") {
+      for (let i = 0; i < classifyResult.length; i++) {
+        if (i == index) {
+          classifyResult[i].selected = true;
+        } else {
+          classifyResult[i].selected = false;
+        }
+      }
+
+      _this.data.categoryFilter = cid;
+    }
+
+    console.log(ageResult);
+
+    _this.setData({
+      pageIndex: "1",
+      ageItems: ageResult,
+      languageItems: languageResult,
+      categoryItems: classifyResult,
+      goodsList: [],
+      pageEnd: false,
+    });
+
+    this.getGoodsListByFilters();
+  },
+  openThis: function(e) {
+    wx.navigateTo({
+      url: '/pages/category/single?id=' + e.currentTarget.dataset.id
+    })
   }
 })
