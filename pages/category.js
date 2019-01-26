@@ -155,6 +155,7 @@ Page({
       url: app.globalData.baseApi + "outer/getGoodsListByFilters",
       method: "GET",
       data: {
+        page: _this.data.pageIndex,
         age: _this.data.ageFilter,
         classify: _this.data.categoryFilter,
         language: _this.data.languageFilter
@@ -173,7 +174,7 @@ Page({
           } else if (result.length > 0) {
             page += 1;
           } else if (result.length == 0) {
-            pageEnd = false;
+            pageEnd = true;
           }
 
           _this.setData({

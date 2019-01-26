@@ -14,14 +14,15 @@
 .category .group {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
+  white-space: nowrap;
   justify-content: left;
   align-items: left;
   -webkit-display: flex;
   -webkit-flex-direction: row;
-  -webkit-flex-wrap: wrap;
+  -webkit-white-space: nowrap;
   -webkit-justify-content: left;
-  margin-bottom: 20rpx;
+  /* margin-bottom: 20rpx; */
+  padding-bottom: 20rpx;
 }
 
 .category .item-normal {
