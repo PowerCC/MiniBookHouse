@@ -1,4 +1,4 @@
-<view class='container' style='margin:30rpx 30rpx {{pageBottom}} 30rpx;'>
+<view class='container' style='margin:30rpx 30rpx {{pageBottom}}rpx 30rpx;'>
   <view wx:for="{{goodsList}}" wx:key="goodsList" class="item" bindtap="openThis" data-id="{{item.id}}">
     <image class="img" src="{{item.img}}" mode="widthFix" />
     <view class="text">

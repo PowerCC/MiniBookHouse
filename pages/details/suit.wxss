@@ -1,13 +1,21 @@
 /* pages/detail/single.wxss */
+@import '../../pages/templates/dataEmptyTemplate.wxss';
+@import '../../pages/home.wxss';
 
-.container {
+/* .container {
   background-color: #fff;
+} */
+
+.scroll {
+  position: absolute;
+  top: 0;
+  left: 30rpx;
+  right: 30rpx;
 }
 
 .up {
   display: flex;
   justify-content: center;
-  margin-top: 20rpx;
 }
 
 .up .left {
@@ -39,44 +47,27 @@
   margin-top: 50rpx;
 }
 
-.item {
-  width: 31%;
-  float: left;
-  padding: 0rpx 8rpx 15rpx 8rpx;
-}
-
-.item image {
-  width: 100%;
-  border: 1px solid #ecf0f1;
-  border-radius: 10rpx;
-}
-
-.item > .text {
-  padding: 5px 10px;
-  font-size: 14px;
-}
-
-.item .d {
-  color: #c1c1c1;
-}
-
-.item .p {
-  color: #f60;
-}
-
-.item .o {
-  color: #c1c1c1;
-  text-decoration: line-through;
+.down button {
+  background-color: #fff;
+  color: red;
+  font-size: 24rpx;
+  height: 50rpx;
+  margin-top: 20rpx;
 }
 
 .bottom-flex {
-  float: right;
+  position: absolute;
+  left: 0;
+  right: 0;
 }
 
-.button {
+.bottom-flex button {
+  float: right;
   background-color: red;
   color: #fff;
-  margin: 5rpx;
+  width: 25%;
+  font-size: 30rpx;
+  height: 80rpx;
 }
 
 .divLine {

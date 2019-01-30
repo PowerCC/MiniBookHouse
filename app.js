@@ -7,7 +7,10 @@ App({
     session: "",
     userInfo: {},
     isIPhoneX: false,
-    pageBottom: "30rpx"
+    windowWidth: 0,
+    windowHeight: 0,
+    scrollViewHeight: 0,
+    pageBottom: 30
   },
 
   onLaunch: function() {
@@ -32,15 +35,19 @@ App({
     let _this = this;
     wx.getSystemInfo({
       success: function(res) {
+
+        _this.globalData.windowWidth = res.windowWidth;
+        _this.globalData.windowHeight = res.windowHeight;
+
         //model中包含着设备信息
         console.log(res.model)
         var model = res.model
         if (model.search('iPhone X') != -1) {
           _this.globalData.isIPhoneX = true;
-          _this.globalData.pageBottom = "68rpx";
+          _this.globalData.pageBottom = 68
         } else {
           _this.globalData.isIPhoneX = false;
-          _this.globalData.pageBottom = "30rpx";
+          _this.globalData.pageBottom = 30
         }
       }
     })

@@ -9,6 +9,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    scrollViewHeight: 0,
     pageBottom: app.globalData.pageBottom,
     suitID: "",
     summary: {},
@@ -22,7 +23,18 @@ Page({
   onLoad: function(options) {
 
     let _this = this;
+    let query = wx.createSelectorQuery();
+    query.selectAll('.box-top').boundingClientRect(rect => {
+      let heightAll = 0;
+      rect.map((currentValue, index, arr) => {
+        heightAll = heightAll + currentValue.height
+      });
 
+      _this.setData({
+        scrollViewHeight: app.globalData.windowHeight - heightAll
+      });
+
+    }).exec();
     this.setData({
       suitID: options.id,
     });

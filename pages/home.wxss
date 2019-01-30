@@ -7,7 +7,7 @@
 }
 
 .scroll {
-  position: fixed;
+  position: absolute;
   top: 115rpx;
 }
 
