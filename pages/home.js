@@ -7,6 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    scrollViewHeight: 0,
     indicatorDots: true,
     autoplay: true,
     interval: 5000,
@@ -14,9 +15,9 @@ Page({
     imageHeight: 0,
     page: 1,
     slideshow: [],
-    brandCategoryList: [],
-    categoryListHasIcon: [],
-    categoryListNoIcon: [],
+    age: [],
+    brand: [],
+    goods: [],
     suitGoodsList: [],
     hotGoodsList: [],
     newGoodsList: [],
@@ -36,12 +37,15 @@ Page({
       url: '/pages/normalSectionList?comType=' + comType
     })
   },
+  openCategory: function(e) {
+
+  },
   openSuit: function(e) {
     wx.navigateTo({
       url: '/pages/details/suit?id=' + e.currentTarget.dataset.id
     })
   },
-  openGoods: function (e) {
+  openGoods: function(e) {
     wx.navigateTo({
       url: '/pages/details/goods?id=' + e.currentTarget.dataset.id
     })
@@ -60,30 +64,18 @@ Page({
       }
     });
   },
-  getBrandCategoryList: function() {
-    let _this = this;
-    wx.request({
-      url: app.globalData.baseApi + "outer/getHomeBrandCategoryList",
-      method: "GET",
-      success(res) {
-        if (res.data.code == 200) {
-          _this.setData({
-            brandCategoryList: res.data.data.result,
-          });
-        }
-      }
-    });
-  },
   getCategoryList: function() {
     let _this = this;
     wx.request({
-      url: app.globalData.baseApi + "outer/getHomeGoodsCategoryList",
+      url: app.globalData.baseApi + "outer/getHomeCategoryList",
       method: "GET",
       success(res) {
         if (res.data.code == 200) {
+          // console.log(res.data);
           _this.setData({
-            categoryListHasIcon: res.data.data.result.hasIcon,
-            categoryListNoIcon: res.data.data.result.noIcon,
+            age: res.data.data.result.age,
+            brand: res.data.data.result.brand,
+            goods: res.data.data.result.goods
           });
         }
       }
@@ -117,8 +109,23 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    let query = wx.createSelectorQuery()
+
+    wx.getSystemInfo({
+      success: res => {
+        query.selectAll('.box-top').boundingClientRect(rect => {
+          let heightAll = 0;
+          rect.map((currentValue, index, arr) => {
+            heightAll = heightAll + currentValue.height
+          });
+          this.setData({
+            scrollViewHeight: res.windowHeight - heightAll - (res.windowWidth / 750 * 115) 
+          });
+        }).exec();
+      }
+    })
+
     this.getSlideshow();
-    this.getBrandCategoryList();
     this.getCategoryList();
     this.getGoodsList();
   },
@@ -160,7 +167,6 @@ Page({
     });
 
     this.getSlideshow();
-    this.getBrandCategoryList();
     this.getCategoryList();
     this.getGoodsList();
   },
