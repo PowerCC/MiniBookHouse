@@ -1,0 +1,92 @@
+/* pages/detail/single.wxss */
+
+.container {
+  background-color: #fff;
+}
+
+.up {
+  display: flex;
+  justify-content: center;
+  margin-top: 20rpx;
+}
+
+.up .left {
+  width: 40%;
+  margin-left: 10px;
+  border: 1px solid #fff;
+  display: flex;
+  justify-content: center;
+}
+
+.up .left image {
+  width: 80%;
+  border: 1px solid #ecf0f1;
+  border-radius: 10rpx;
+}
+
+.up .right {
+  width: 60%;
+  border: 1px solid #fff;
+  margin-left: 10px;
+  font-size: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: baseline;
+}
+
+.down {
+  margin-top: 50rpx;
+}
+
+.item {
+  width: 31%;
+  float: left;
+  padding: 0rpx 8rpx 15rpx 8rpx;
+}
+
+.item image {
+  width: 100%;
+  border: 1px solid #ecf0f1;
+  border-radius: 10rpx;
+}
+
+.item > .text {
+  padding: 5px 10px;
+  font-size: 14px;
+}
+
+.item .d {
+  color: #c1c1c1;
+}
+
+.item .p {
+  color: #f60;
+}
+
+.item .o {
+  color: #c1c1c1;
+  text-decoration: line-through;
+}
+
+.bottom-flex {
+  float: right;
+}
+
+.button {
+  background-color: red;
+  color: #fff;
+  margin: 5rpx;
+}
+
+.divLine {
+  background: #e0e3da;
+  width: 100%;
+  height: 2rpx;
+}
+
+.clear {
+  clear: both;
+  height: 0;
+  overflow: hidden;
+}

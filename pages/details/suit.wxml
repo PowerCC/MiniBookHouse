@@ -1,0 +1,47 @@
+<!-- pages/detail/single.wxml -->
+<view class="container" style='margin:30rpx 30rpx {{pageBottom}} 30rpx;'>
+
+  <view class="up">
+    <view class="left">
+      <image src="{{summary.img}}" mode='widthFix'></image>
+    </view>
+    <view class="right">
+      <view>{{summary.name}}</view>
+      <view>作者：{{summary.author}}</view>
+      <view>出版社：{{summary.press}}</view>
+      <view>语言：{{summary.language}}</view>
+      <view>年龄：{{summary.age}}</view>
+      <view>分类：{{summary.category}}</view>
+    </view>
+  </view>
+
+  <view class="clear"></view>
+
+  <view class="down">
+
+    <view>套装目录（共{{goodsCount}}本）</view>
+    <view>
+      <view class='item' wx:for="{{goodsList}}" wx:key="id">
+        <image src='{{item.img}}' mode='widthFix'></image>
+        <view class="text">
+          <view class="t">{{item.name}}</view>
+          <view class="o">¥{{item.sell_price}}
+            <image src='cart_01.png' style='width:20px;height:20px'></image>
+          </view>
+        </view>
+      </view>
+    </view>
+
+  </view>
+
+  <view class="clear"></view>
+
+  <!-- 分割线 -->
+  <view class="divLine"></view>
+  <view class='bottom-flex'>
+    <view>
+      <button class='button'>打开书包</button>
+    </view>
+  </view>
+
+</view>

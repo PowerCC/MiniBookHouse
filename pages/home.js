@@ -36,9 +36,14 @@ Page({
       url: '/pages/normalSectionList?comType=' + comType
     })
   },
-  openThis: function(e) {
+  openSuit: function(e) {
     wx.navigateTo({
-      url: '/pages/category/single?id=' + e.currentTarget.dataset.id
+      url: '/pages/details/suit?id=' + e.currentTarget.dataset.id
+    })
+  },
+  openGoods: function (e) {
+    wx.navigateTo({
+      url: '/pages/details/goods?id=' + e.currentTarget.dataset.id
     })
   },
   getSlideshow: function() {
@@ -112,20 +117,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-
-    wx.getSystemInfo({
-      success: function(res) {
-        //model中包含着设备信息
-        console.log(res.model)
-        var model = res.model
-        if (model.search('iPhone X') != -1) {
-          app.globalData.isIPhoneX = true;
-        } else {
-          app.globalData.isIPhoneX = false;
-        }
-      }
-    })
-
     this.getSlideshow();
     this.getBrandCategoryList();
     this.getCategoryList();

@@ -14,7 +14,9 @@
     "pages/common/auth",
     "pages/normalSectionList",
     "pages/boutiqueSectionList",
-    "pages/search/search"
+    "pages/search/search",
+    "pages/details/goods",
+    "pages/details/suit"
   ],
   "window": {
     "backgroundTextStyle": "light",

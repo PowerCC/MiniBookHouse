@@ -7,7 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    pageBottom: "30rpx",
+    pageBottom: app.globalData.pageBottom,
     pageIndex: 1,
     comType: '',
     pageEnd: false,
@@ -19,11 +19,8 @@ Page({
    */
   onLoad: function(options) {
 
-    let isPhone = app.globalData.isIPhoneX;
-
     this.setData({
       comType: options.comType,
-      pageBottom: isPhone ? "68rpx" : "30rpx"
     });
 
     var sectionTitle = '';

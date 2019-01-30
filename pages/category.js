@@ -6,7 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    pageBottom: "30rpx",
+    pageBottom: app.globalData.pageBottom,
     pageIndex: 1,
 
     ageItemClass: "item-normal",
@@ -30,14 +30,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    var _this = this;
-
-    let isPhone = app.globalData.isIPhoneX;
-
-    this.setData({
-      pageBottom: isPhone ? "68rpx" : "30rpx"
-    });
-
     this.getCategoryListByParentId();
     this.getGoodsListByFilters();
   },

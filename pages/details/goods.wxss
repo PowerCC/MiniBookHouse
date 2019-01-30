@@ -1,0 +1,124 @@
+/* pages/detail/goods.wxss */
+
+/* pages/detail/single.wxss */
+
+.container {
+  background-color: #fff;
+}
+
+.up {
+  display: flex;
+  justify-content: center;
+  margin-top: 20rpx;
+}
+
+.up .left {
+  width: 40%;
+  margin-left: 10px;
+  border: 1px solid #fff;
+  display: flex;
+  justify-content: center;
+}
+
+.up .left image {
+  width: 80%;
+  border: 1px solid #ecf0f1;
+  border-radius: 10rpx;
+}
+
+.up .right {
+  width: 60%;
+  border: 1px solid #fff;
+  margin-left: 10px;
+  font-size: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: baseline;
+}
+
+.down {
+  margin-top: 50rpx;
+}
+
+.imgShow {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.item {
+  width: 45%;
+  margin: 15rpx;
+}
+
+.item image {
+  width: 100%;
+  border: 1px solid #ecf0f1;
+  border-radius: 10rpx;
+}
+
+.item > .text {
+  padding: 5px 10px;
+  font-size: 14px;
+}
+
+.item .d {
+  color: #c1c1c1;
+}
+
+.item .p {
+  color: #f60;
+}
+
+.item .o {
+  color: #c1c1c1;
+  text-decoration: line-through;
+}
+
+.bottom-flex {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.buttonA {
+  background-color: gold;
+  color: #fff;
+  margin: 5rpx;
+}
+
+.buttonB {
+  background-color: red;
+  color: #fff;
+  margin: 5rpx;
+}
+
+.divLine {
+  background: #e0e3da;
+  width: 100%;
+  height: 2rpx;
+}
+
+.clear {
+  clear: both;
+  height: 0;
+  overflow: hidden;
+}
+
+.line {
+  display: table;
+  width: 100%;
+  line-height: 32px;
+  background-color: #fff;
+  white-space: nowrap;
+  border-spacing: 0.2rem 0;
+}
+
+.line:before, .line:after {
+  display: table-cell;
+  content: '';
+  width: 50%;
+  background: -webkit-linear-gradient(#eee, #eee) repeat-x left center;
+  background: linear-gradient(#eee, #eee) repeat-x left center;
+  background-size: 0.1rem 0.1rem;
+}

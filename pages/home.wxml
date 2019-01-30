@@ -16,7 +16,7 @@
 
   <!-- 专栏 -->
   <view wx:if="{{brandCategoryList.length > 0}}" style="margin:30rpx;">
-    <view wx:for="{{brandCategoryList}}" wx:key="" class="zhuanlan" bindtap="openThis" data-id="{{item.id}}">
+    <view wx:for="{{brandCategoryList}}" wx:key="" class="zhuanlan" bindtap="openSuit" data-id="{{item.id}}">
       <image class="img" src="{{item.logo}}" mode='aspectFit' />
       <view class="text">{{item.name}}</view>
     </view>
@@ -36,7 +36,7 @@
 
   <!-- 不带图标分类 -->
   <view wx:if="{{categoryListNoIcon.length > 0}}" style="margin:60rpx 30rpx 60rpx 30rpx;">
-    <view wx:for="{{categoryListNoIcon}}" wx:key="" class="cat" bindtap="openThis" data-id="{{item.id}}">
+    <view wx:for="{{categoryListNoIcon}}" wx:key="" class="cat" bindtap="openSuit" data-id="{{item.id}}">
       <view class="text">{{item.name}}</view>
     </view>
   </view>
@@ -51,7 +51,7 @@
       <view class="more" bindtap="openMoreList" data-comType="suit">查看更多></view>
     </view>
 
-    <view wx:for="{{suitGoodsList}}" wx:key="suitGoodsList" class="item" bindtap="openThis" data-id="{{item.id}}">
+    <view wx:for="{{suitGoodsList}}" wx:key="suitGoodsList" class="item" bindtap="openSuit" data-id="{{item.id}}">
       <image class="img" src="{{item.img}}" mode="widthFix" />
       <view class="text">
         <view class="n">{{item.name}}</view>
@@ -69,7 +69,7 @@
       <view class="more" bindtap="openMoreList" data-comType="hot">查看更多></view>
     </view>
 
-    <view wx:for="{{hotGoodsList}}" wx:key="hotGoodsList" class="item" bindtap="openThis" data-id="{{item.id}}">
+    <view wx:for="{{hotGoodsList}}" wx:key="hotGoodsList" class="item" bindtap="openGoods" data-id="{{item.id}}">
       <image class="img" src="{{item.img}}" mode="widthFix" />
       <view class="text">
         <view class="n">{{item.name}}</view>
@@ -87,7 +87,7 @@
       <view class="more" bindtap="openMoreList" data-comType="new">查看更多></view>
     </view>
 
-    <view wx:for="{{newGoodsList}}" wx:key="newGoodsList" class="item" bindtap="openThis" data-id="{{item.id}}">
+    <view wx:for="{{newGoodsList}}" wx:key="newGoodsList" class="item" bindtap="openGoods" data-id="{{item.id}}">
       <image class="img" src="{{item.img}}" mode="widthFix" />
       <view class="text">
         <view class="n">{{item.name}}</view>
@@ -105,7 +105,7 @@
       <view class="more" bindtap="openMoreList" data-comType="best">查看更多></view>
     </view>
 
-    <view wx:for="{{bestGoodsList}}" wx:key="bestGoodsList" class="best" bindtap="openThis" data-id="{{item.id}}">
+    <view wx:for="{{bestGoodsList}}" wx:key="bestGoodsList" class="best" bindtap="openGoods" data-id="{{item.id}}">
       <image class="img" src="{{item.img}}" mode="widthFix" />
       <view class="text">
         <view class="n">{{item.name}}</view>

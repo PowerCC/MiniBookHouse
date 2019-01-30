@@ -1,6 +1,16 @@
 //app.js
 App({
-  onLaunch: function () {
+  globalData: {
+    baseApi: "https://open.hunli.baihe.com/",
+    cartList: [],
+    cartNum: 0,
+    session: "",
+    userInfo: {},
+    isIPhoneX: false,
+    pageBottom: "30rpx"
+  },
+
+  onLaunch: function() {
     //获取用户授权
     //this.checkAuth();
 
@@ -18,57 +28,66 @@ App({
     //   cartNum += item.number;
     // });
     // this.globalData.cartNum = cartNum;
+
+    let _this = this;
+    wx.getSystemInfo({
+      success: function(res) {
+        //model中包含着设备信息
+        console.log(res.model)
+        var model = res.model
+        if (model.search('iPhone X') != -1) {
+          _this.globalData.isIPhoneX = true;
+          _this.globalData.pageBottom = "68rpx";
+        } else {
+          _this.globalData.isIPhoneX = false;
+          _this.globalData.pageBottom = "30rpx";
+        }
+      }
+    })
   },
 
-  globalData: {
-    baseApi: "https://open.hunli.baihe.com/",
-    cartList: [],
-    cartNum: 0,
-    session: "",
-    userInfo: {},
-    isIPhoneX: false
-  },
-
-  checkAuth: function(){
-    try{
+  checkAuth: function() {
+    try {
       const session = wx.getStorageSync("session");
       if (session) {
         this.globalData.session = session;
         return true;
       }
-    }catch(e){
+    } catch (e) {
       console.log(e.toString());
       return false;
     }
 
     let _this = this;
     wx.login({
-        success(res){
-          if (res.code){
-            //_this.login(res.code);
-          } else {
-            console.log("登录失败！"+res.errMsg);
-          }
+      success(res) {
+        if (res.code) {
+          //_this.login(res.code);
+        } else {
+          console.log("登录失败！" + res.errMsg);
         }
+      }
     });
   },
   login: function(code) {
     let _this = this;
     wx.request({
-        url: _this.globalData.baseApi + "user/login",
-        method: "GET",
-        data: {code: code},
-        success(res){
-          if (res.data.code === 200) {
-            _this.globalData.session = res.data.session;
-            try{
-              wx.setStorageSync("session", res.data.session);
-            }catch(e){
-              console.log(e.toString());
-              return false;
-            }
+      url: _this.globalData.baseApi + "user/login",
+      method: "GET",
+      data: {
+        code: code
+      },
+      success(res) {
+        if (res.data.code === 200) {
+          _this.globalData.session = res.data.session;
+          try {
+            wx.setStorageSync("session", res.data.session);
+          } catch (e) {
+            console.log(e.toString());
+            return false;
           }
         }
+      }
     })
   },
 });

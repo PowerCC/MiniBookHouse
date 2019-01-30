@@ -7,9 +7,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-    pageBottom: "30rpx",
+    pageBottom: app.globalData.pageBottom,
     pageIndex: 1,
     keyword: '',
+    pageEmpty: false,
     pageEnd: false,
     goodsList: []
   },
@@ -19,11 +20,8 @@ Page({
    */
   onLoad: function(options) {
 
-    let isPhone = app.globalData.isIPhoneX;
-
     this.setData({
       keyword: options.keyword,
-      pageBottom: isPhone ? "68rpx" : "30rpx"
     });
 
     var sectionTitle = '搜索';
@@ -113,16 +111,21 @@ Page({
 
           let result = res.data.data.result;
           var page = _this.data.pageIndex;
-          var pageEnd = true;
+          var pageEmpty = false;
+          var pageEnd = false;
 
-          if (result.length > 0) {
+          if (result.length == 0 && _this.data.goodsList.length == 0) {
+            pageEmpty = true;
+          } else if (result.length > 0) {
             page += 1;
-            pageEnd = false;
+          } else if (result.length == 0) {
+            pageEnd = true;
           }
 
           _this.setData({
             pageIndex: page,
             goodsList: _this.data.goodsList.concat(result),
+            pageEmpty: pageEmpty,
             pageEnd: pageEnd
           });
         }
