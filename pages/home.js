@@ -44,7 +44,10 @@ Page({
     });
   },
   openCategory: function(e) {
-
+    var id = e.currentTarget.dataset.id;
+    wx.switchTab({
+      url: '/pages/category'
+    });
   },
   openSuit: function(e) {
     wx.navigateTo({
