@@ -29,6 +29,7 @@
   <view wx:if="{{pageEmpty}}" class="empty">
     <template is="dataEmpty" />
   </view>
+  <view class="clear"></view>
   <view wx:if="{{pageEnd}}" class="end-page">
     <view>------</view>
     <view style="margin: 0rpx 20rpx;">到底了</view>
