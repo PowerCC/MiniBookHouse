@@ -151,6 +151,8 @@
 .best {
   display: flex;
   flex-direction: column;
+  -webkit-display: flex;
+  -webkit-flex-direction: column;
   align-items: center;
 }
 

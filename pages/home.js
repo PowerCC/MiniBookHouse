@@ -35,7 +35,13 @@ Page({
     var comType = e.currentTarget.dataset.comtype;
     wx.navigateTo({
       url: '/pages/normalSectionList?comType=' + comType
-    })
+    });
+  },
+  openPolymerization: function(e) {
+    var id = e.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: '/pages/brand/polymerization?id=' + id
+    });
   },
   openCategory: function(e) {
 
@@ -43,12 +49,12 @@ Page({
   openSuit: function(e) {
     wx.navigateTo({
       url: '/pages/details/suit?id=' + e.currentTarget.dataset.id
-    })
+    });
   },
   openGoods: function(e) {
     wx.navigateTo({
       url: '/pages/details/goods?id=' + e.currentTarget.dataset.id
-    })
+    });
   },
   getSlideshow: function() {
     let _this = this;

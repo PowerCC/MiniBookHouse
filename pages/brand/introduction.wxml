@@ -1,0 +1,4 @@
+<!--pages/brand/introduction.wxml-->
+<import src='../../pages/templates/dataEmptyTemplate.wxml' />
+<view class="container">
+</view>

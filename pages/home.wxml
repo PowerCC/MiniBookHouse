@@ -16,7 +16,7 @@
 
     <!-- 专栏 -->
     <view wx:if="{{brand.length > 0}}" style="margin:30rpx;">
-      <view wx:for="{{brand}}" wx:key="" class="zhuanlan" bindtap="openCategory" data-id="{{item.id}}">
+      <view wx:for="{{brand}}" wx:key="" class="zhuanlan" bindtap="openPolymerization" data-id="{{item.id}}">
         <image class="img" src="{{item.logo}}" mode='aspectFit' />
         <view class="text">{{item.name}}</view>
       </view>

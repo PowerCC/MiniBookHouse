@@ -16,7 +16,9 @@
     "pages/boutiqueSectionList",
     "pages/search/search",
     "pages/details/goods",
-    "pages/details/suit"
+    "pages/details/suit",
+    "pages/brand/polymerization",
+    "pages/brand/introduction"
   ],
   "window": {
     "backgroundTextStyle": "light",
