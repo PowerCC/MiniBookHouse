@@ -38,6 +38,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  -webkit-display: flex;
   -webkit-flex-direction: column;
   -webkit-justify-content: center;
   font-size: 28rpx;
@@ -48,6 +49,46 @@
 
 .down {
   margin: 30rpx;
+}
+
+.down .contentTop {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  -webkit-display: flex;
+  -webkit-flex-direction: row;
+  -webkit-justify-content: left;
+  vertical-align: center;
+  align-items: center;
+  width: 100%;
+  font-size: 34rpx;
+}
+
+.down .contentTop view {
+  width: 15rpx;
+  height: 30rpx;
+  background-color: red;
+  margin-right: 20rpx;
+}
+
+.down .contentTitle {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  -webkit-display: flex;
+  -webkit-flex-direction: row;
+  -webkit-justify-content: center;
+  vertical-align: center;
+  align-items:center;
+  width: 100%;
+}
+
+.down .contentTitle text {
+  text-align: center;
+  font-size: 34rpx;
+  width: 100%;
+  height: 80rpx;
+  line-height: 80rpx;
 }
 
 .down button {
@@ -97,6 +138,12 @@
   width: 25%;
   font-size: 30rpx;
   height: 80rpx;
+}
+
+.line {
+  background: #e0e3da;
+  width: 100%;
+  height: 2rpx;
 }
 
 .divLine {

@@ -68,7 +68,9 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function() {
-    this.getBrandListByBrandCategoryId();
+    if (this.data.pageEnd == false) {
+      this.getBrandListByBrandCategoryId();
+    }
   },
 
   /**
@@ -120,13 +122,13 @@ Page({
       }
     });
   },
-  openIntroduction: function (e) {
+  openIntroduction: function(e) {
     var id = e.currentTarget.dataset.id;
     wx.navigateTo({
       url: '/pages/brand/introduction?id=' + id
     });
   },
-  openGoods: function (e) {
+  openGoods: function(e) {
     wx.navigateTo({
       url: '/pages/details/goods?id=' + e.currentTarget.dataset.id
     });

@@ -44,10 +44,10 @@ App({
         var model = res.model
         if (model.search('iPhone X') != -1) {
           _this.globalData.isIPhoneX = true;
-          _this.globalData.pageBottom = 68
+          _this.globalData.pageBottom = 128
         } else {
           _this.globalData.isIPhoneX = false;
-          _this.globalData.pageBottom = 30
+          _this.globalData.pageBottom = 60
         }
       }
     })

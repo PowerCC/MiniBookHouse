@@ -48,7 +48,7 @@
 }
 
 .more {
-  color: #696969;
+  color: #5e3e3e;
   font-size: 25rpx;
   margin-top: 6rpx;
 }
