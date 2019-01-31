@@ -15,20 +15,15 @@
       </view>
     </view>
 
-    <view class="dividing-line" style="margin-top: 60rpx;"></view>
+    <view class="dividing-line" style="margin-top: 40rpx;"></view>
     <view class="down">
-
-      <view>套装目录（共{{goodsCount}}本）</view>
-      <view>
-
-        <view wx:for="{{goodsList}}" wx:key="goodsList" class="item" bindtap="" data-id="{{item.id}}">
-          <image class="img" src="{{item.img}}" mode="widthFix" />
-          <view class="text">
-            <view class="n">{{item.name}}</view>
-            <button class='button'>加入书包</button>
-          </view>
+      <view class='biaoti'>套装目录（共{{goodsCount}}本）</view>
+      <view wx:for="{{goodsList}}" wx:key="goodsList" class="item" bindtap="" data-id="{{item.id}}" style='padding-bottom: 30rpx;'>
+        <image class="img" src="{{item.img}}" mode="widthFix" />
+        <view class="text">
+          <view class="n">{{item.name}}</view>
+          <button class='button'>加入书包</button>
         </view>
-
       </view>
 
     </view>

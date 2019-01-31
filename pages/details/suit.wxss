@@ -9,21 +9,24 @@
 .scroll {
   position: absolute;
   top: 0;
-  left: 30rpx;
-  right: 30rpx;
+  left: 0;
 }
 
 .up {
   display: flex;
   justify-content: center;
+  -webkit-display: flex;
+  -webkit-justify-content: center;
 }
 
 .up .left {
   width: 40%;
-  margin-left: 10px;
+  margin-left: 30rpx;
   border: 1px solid #fff;
   display: flex;
   justify-content: center;
+  -webkit-display: flex;
+  -webkit-justify-content: center;
 }
 
 .up .left image {
@@ -35,27 +38,33 @@
 .up .right {
   width: 60%;
   border: 1px solid #fff;
-  margin-left: 10px;
-  font-size: 16px;
+  margin-left: 30rpx;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  -webkit-flex-direction: column;
+  -webkit-justify-content: center;
+  font-size: 28rpx;
+  text-align: center;
+  color: #696969;
   align-items: baseline;
 }
 
 .down {
-  margin-top: 50rpx;
+  margin: 30rpx;
 }
 
 .down button {
   background-color: #fff;
   color: red;
   font-size: 24rpx;
-  height: 50rpx;
+  width: 200rpx;
+  height: 55rpx;
   margin-top: 20rpx;
 }
 
 .bottom-flex {
+  background-color: #fff;
   position: absolute;
   left: 0;
   right: 0;
