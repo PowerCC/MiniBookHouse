@@ -7,6 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    scrollViewHeight: 0,
     pageBottom: app.globalData.pageBottom,
     goodsID: "",
     goodsInfo: {}
@@ -16,8 +17,23 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-
     let _this = this;
+    let query = wx.createSelectorQuery();
+    query.selectAll('.box-top').boundingClientRect(rect => {
+      let heightAll = 0;
+      rect.map((currentValue, index, arr) => {
+        heightAll = heightAll + currentValue.height
+      });
+
+      _this.setData({
+        scrollViewHeight: app.globalData.windowHeight - heightAll
+      });
+
+    }).exec();
+
+    this.setData({
+      goodsID: options.id,
+    });
 
     wx.request({
       url: app.globalData.baseApi + "outer/getGoodsDetailById",

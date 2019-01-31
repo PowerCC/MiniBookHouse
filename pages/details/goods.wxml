@@ -1,6 +1,6 @@
 <!--pages/detail/goods.wxml-->
-<view class="container" style='margin:30rpx 30rpx {{pageBottom}} 30rpx;'>
-  <scroll-view scroll-y style='height{{scrollViewHeight}}px;'>
+<view class="container">
+  <scroll-view scroll-y class='scroll' style="height: {{scrollViewHeight}}px;">
     <view class="up">
       <view class="left">
         <image src="{{goodsInfo.img}}" mode='widthFix'></image>
@@ -15,11 +15,31 @@
       </view>
     </view>
 
-    <view class="clear"></view>
-
+    <view class="dividing-line" style="margin-top: 40rpx;"></view>
     <view class="down">
+      <view class='biaoti'>【内容简介】</view>
+      <view wx:for="{{goodsList}}" wx:key="goodsList" class="item" bindtap="" data-id="{{item.id}}" style='padding-bottom: 30rpx;'>
+        <image class="img" src="{{item.img}}" mode="widthFix" />
+        <view class="text">
+          <view class="n">{{item.name}}</view>
+          <button class='button'>加入书包</button>
+        </view>
+      </view>
+      <view class='biaoti'>【内页详情】</view>
+      <view class='item' wx:for="{{goodsInfo.img_list}}">
+        <image src='{{item}}' mode='aspectFix'></image>
+      </view>
+    </view>
+  </scroll-view>
+  <!-- 分割线 -->
+  <view class='bottom-flex' style='bottom:{{pageBottom}}rpx'>
+    <view class="divLine"></view>
+    <button>打开书包</button>
+  </view>
 
-      <view>图文详情</view>
+</view>
+
+<!-- <view>图文详情</view>
       <view class='line'>【内容简介】</view>
       <rich-text nodes="{{goodsInfo.content}}"></rich-text>
       <view class='line'>【内页详情】</view>
@@ -29,17 +49,4 @@
         </view>
       </view>
 
-    </view>
-  </scroll-view>
-  <!-- 分割线 -->
-  <view class="divLine"></view>
-  <view class='bottom-flex'>
-    <view>
-      <button class='buttonA'>打开书包</button>
-    </view>
-    <view>
-      <button class='buttonB'>加入书包</button>
-    </view>
-  </view>
-
-</view>
+    </view> -->

@@ -1,23 +1,28 @@
 /* pages/detail/goods.wxss */
+@import '../../pages/templates/dataEmptyTemplate.wxss';
+@import '../../pages/home.wxss';
 
-/* pages/detail/single.wxss */
-
-.container {
-  background-color: #fff;
+.scroll {
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .up {
   display: flex;
   justify-content: center;
-  margin-top: 20rpx;
+  -webkit-display: flex;
+  -webkit-justify-content: center;
 }
 
 .up .left {
   width: 40%;
-  margin-left: 10px;
+  margin-left: 30rpx;
   border: 1px solid #fff;
   display: flex;
   justify-content: center;
+  -webkit-display: flex;
+  -webkit-justify-content: center;
 }
 
 .up .left image {
@@ -29,96 +34,49 @@
 .up .right {
   width: 60%;
   border: 1px solid #fff;
-  margin-left: 10px;
-  font-size: 16px;
+  margin-left: 30rpx;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  -webkit-flex-direction: column;
+  -webkit-justify-content: center;
+  font-size: 28rpx;
+  text-align: center;
+  color: #696969;
   align-items: baseline;
 }
 
 .down {
-  margin-top: 50rpx;
+  margin: 30rpx;
 }
 
-.imgShow {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-
-.item {
-  width: 45%;
-  margin: 15rpx;
-}
-
-.item image {
-  width: 100%;
-  border: 1px solid #ecf0f1;
-  border-radius: 10rpx;
-}
-
-.item > .text {
-  padding: 5px 10px;
-  font-size: 14px;
-}
-
-.item .d {
-  color: #c1c1c1;
-}
-
-.item .p {
-  color: #f60;
-}
-
-.item .o {
-  color: #c1c1c1;
-  text-decoration: line-through;
+.down button {
+  background-color: #fff;
+  color: red;
+  font-size: 24rpx;
+  width: 200rpx;
+  height: 55rpx;
+  margin-top: 20rpx;
 }
 
 .bottom-flex {
-  display: flex;
-  justify-content: flex-end;
+  background-color: #fff;
+  position: absolute;
+  left: 0;
+  right: 0;
 }
 
-.buttonA {
-  background-color: gold;
-  color: #fff;
-  margin: 5rpx;
-}
-
-.buttonB {
+.bottom-flex button {
+  float: right;
   background-color: red;
   color: #fff;
-  margin: 5rpx;
+  width: 25%;
+  font-size: 30rpx;
+  height: 80rpx;
 }
 
 .divLine {
   background: #e0e3da;
   width: 100%;
   height: 2rpx;
-}
-
-.clear {
-  clear: both;
-  height: 0;
-  overflow: hidden;
-}
-
-.line {
-  display: table;
-  width: 100%;
-  line-height: 32px;
-  background-color: #fff;
-  white-space: nowrap;
-  border-spacing: 0.2rem 0;
-}
-
-.line:before, .line:after {
-  display: table-cell;
-  content: '';
-  width: 50%;
-  background: -webkit-linear-gradient(#eee, #eee) repeat-x left center;
-  background: linear-gradient(#eee, #eee) repeat-x left center;
-  background-size: 0.1rem 0.1rem;
 }

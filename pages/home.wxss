@@ -55,8 +55,9 @@
 
 .item {
   width: 31%;
+  height: 420rpx;
   float: left;
-  padding: 0rpx 8rpx 15rpx 8rpx;
+  padding: 0rpx 8rpx 0rpx 8rpx;
 }
 
 .item .img {

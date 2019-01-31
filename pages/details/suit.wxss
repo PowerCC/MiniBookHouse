@@ -2,10 +2,6 @@
 @import '../../pages/templates/dataEmptyTemplate.wxss';
 @import '../../pages/home.wxss';
 
-/* .container {
-  background-color: #fff;
-} */
-
 .scroll {
   position: absolute;
   top: 0;
@@ -83,10 +79,4 @@
   background: #e0e3da;
   width: 100%;
   height: 2rpx;
-}
-
-.clear {
-  clear: both;
-  height: 0;
-  overflow: hidden;
 }
