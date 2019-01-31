@@ -59,6 +59,30 @@
   margin-top: 20rpx;
 }
 
+.content {
+  font-size: 28rpx;
+  color: #696969;
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+  margin-bottom: 50rpx;
+}
+
+.imgList {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  -webkit-flex-direction: column;
+  -webkit-display: flex;
+  -webkit-justify-content: center;
+  text-align: center;
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+}
+
+.imgList image {
+  width: 100%;
+}
+
 .bottom-flex {
   background-color: #fff;
   position: absolute;

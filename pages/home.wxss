@@ -43,7 +43,7 @@
   justify-content: space-between;
   -webkit-display: flex;
   -webkit-justify-content: space-between;
-  font-size: 36rpx;
+  font-size: 34rpx;
   height: 80rpx;
 }
 
@@ -88,8 +88,8 @@
 .best {
   width: 47.5%;
   float: left;
-  /* background-color: #fff; */
-  padding: 0rpx 8rpx 15rpx 8rpx;
+  height: 550rpx;
+  padding: 0rpx 8rpx 0rpx 8rpx;
 }
 
 .best .img {

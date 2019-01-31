@@ -18,16 +18,12 @@
     <view class="dividing-line" style="margin-top: 40rpx;"></view>
     <view class="down">
       <view class='biaoti'>【内容简介】</view>
-      <view wx:for="{{goodsList}}" wx:key="goodsList" class="item" bindtap="" data-id="{{item.id}}" style='padding-bottom: 30rpx;'>
-        <image class="img" src="{{item.img}}" mode="widthFix" />
-        <view class="text">
-          <view class="n">{{item.name}}</view>
-          <button class='button'>加入书包</button>
-        </view>
+      <view class='content'>
+        <rich-text nodes="{{goodsInfo.content}}"></rich-text>
       </view>
       <view class='biaoti'>【内页详情】</view>
-      <view class='item' wx:for="{{goodsInfo.img_list}}">
-        <image src='{{item}}' mode='aspectFix'></image>
+      <view class='imgList' wx:for="{{goodsInfo.img_list}}">
+        <image src='{{item}}' mode='widthFix'></image>
       </view>
     </view>
   </scroll-view>
@@ -35,6 +31,7 @@
   <view class='bottom-flex' style='bottom:{{pageBottom}}rpx'>
     <view class="divLine"></view>
     <button>打开书包</button>
+    <button style='background-color: #ff6500;margin-right: 20rpx;'>加入书包</button>
   </view>
 
 </view>
