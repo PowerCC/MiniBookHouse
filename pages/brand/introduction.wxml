@@ -15,10 +15,12 @@
     </view>
     <view class="dividing-line" style="margin:30rpx 0rpx 30rpx 0rpx;"></view>
     <view class='bookItem'>
-      <view wx:for="{{goodsList}}" wx:key="goodsList" wx:for-item="bookItem" class="best" bindtap="openGoods" data-id="{{bookItem.id}}">
-        <image class="img" src="{{bookItem.img}}" mode="widthFix" />
-        <view class="text">
-          <view class="n">{{bookItem.name}}</view>
+      <view class='bookList'>
+        <view wx:for="{{goodsList}}" wx:key="goodsList" wx:for-item="bookItem" class="best" bindtap="openGoods" data-id="{{bookItem.id}}">
+          <image class="img" src="{{bookItem.img}}" mode="widthFix" />
+          <view class="text">
+            <view class="n">{{bookItem.name}}</view>
+          </view>
         </view>
       </view>
     </view>

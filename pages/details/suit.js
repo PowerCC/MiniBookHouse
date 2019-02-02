@@ -108,5 +108,21 @@ Page({
    */
   onShareAppMessage: function() {
 
+  },
+
+  openBox: function() {
+    wx.navigateBack({
+
+    });
+
+    wx.switchTab({
+      url: '/pages/cart/box'
+    });
+
+  },
+
+  addToBox: function(e) {
+    app.globalData.box.push(e.currentTarget.dataset.id);
+    wx.setStorageSync('box', app.globalData.box);
   }
 })

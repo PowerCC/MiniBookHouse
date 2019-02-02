@@ -16,7 +16,9 @@
     "pages/details/goods",
     "pages/details/suit",
     "pages/brand/polymerization",
-    "pages/brand/introduction"
+    "pages/brand/introduction",
+    "pages/cart/box",
+    "pages/cart/address"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -42,7 +44,7 @@
         "selectedIconPath": "/static/img/category_02.png"
       },
       {
-        "pagePath": "pages/cart",
+        "pagePath": "pages/cart/box",
         "text": "书包",
         "iconPath": "/static/img/cart_01.png",
         "selectedIconPath": "/static/img/cart_02.png"

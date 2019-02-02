@@ -1,0 +1,33 @@
+<!--pages/cart/box.wxml-->
+<view class="container">
+  <scroll-view scroll-y class='scroll' style="height: {{scrollViewHeight}}px;">
+    <view class='box'>
+      <view class='joinMembership'>
+        <text>开通会员享无限借阅</text>
+        <view class='button'>开通会员</view>
+      </view>
+      <view class='address'>
+      </view>
+      <view class='boxList'>
+        <view class='boxItem' wx:for='{{boxList}}' wx:key='boxList' bindtap=''>
+          <view class='one'>
+            <view>ddd</view>
+          </view>
+          <view class='two'>
+            <image src='{{item.img}}' mode='widthFix' />
+          </view>
+          <view class='three'>{{item.name}}</view>
+          <view class='four'>
+            <image src='/static/img/btn_delete.png' mode='aspectFit' style='height:50rpx;' />
+          </view>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+  <!-- 分割线 -->
+  <view class='bottom-flex' style='bottom:{{pageBottom}}rpx'>
+    <view class="divLine"></view>
+    <button bindtap='openBox'>提交订单</button>
+  </view>
+
+</view>

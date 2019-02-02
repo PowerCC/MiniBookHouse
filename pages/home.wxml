@@ -50,12 +50,13 @@
         <view>套装推荐</view>
         <view class="more" bindtap="openMoreList" data-comType="suit">查看更多></view>
       </view>
-
-      <view wx:for="{{suitGoodsList}}" wx:key="suitGoodsList" class="item" bindtap="openSuit" data-id="{{item.id}}">
-        <image class="img" src="{{item.img}}" mode="widthFix" />
-        <view class="text">
-          <view class="n">{{item.name}}</view>
-          <view class="d">{{item.desc}}</view>
+      <view class='bookList'>
+        <view wx:for="{{suitGoodsList}}" wx:key="suitGoodsList" class="item" bindtap="openSuit" data-id="{{item.id}}">
+          <image class="img" src="{{item.img}}" mode="widthFix" />
+          <view class="text">
+            <view class="n">{{item.name}}</view>
+            <view class="d">{{item.desc}}</view>
+          </view>
         </view>
       </view>
     </view>
@@ -68,12 +69,13 @@
         <view>热门图书</view>
         <view class="more" bindtap="openMoreList" data-comType="hot">查看更多></view>
       </view>
-
-      <view wx:for="{{hotGoodsList}}" wx:key="hotGoodsList" class="item" bindtap="openGoods" data-id="{{item.id}}">
-        <image class="img" src="{{item.img}}" mode="widthFix" />
-        <view class="text">
-          <view class="n">{{item.name}}</view>
-          <view class="d">{{item.desc}}</view>
+      <view class='bookList'>
+        <view wx:for="{{hotGoodsList}}" wx:key="hotGoodsList" class="item" bindtap="openGoods" data-id="{{item.id}}">
+          <image class="img" src="{{item.img}}" mode="widthFix" />
+          <view class="text">
+            <view class="n">{{item.name}}</view>
+            <view class="d">{{item.desc}}</view>
+          </view>
         </view>
       </view>
     </view>
@@ -86,12 +88,13 @@
         <view>新到图书</view>
         <view class="more" bindtap="openMoreList" data-comType="new">查看更多></view>
       </view>
-
-      <view wx:for="{{newGoodsList}}" wx:key="newGoodsList" class="item" bindtap="openGoods" data-id="{{item.id}}">
-        <image class="img" src="{{item.img}}" mode="widthFix" />
-        <view class="text">
-          <view class="n">{{item.name}}</view>
-          <view class="d">{{item.desc}}</view>
+      <view class='bookList'>
+        <view wx:for="{{newGoodsList}}" wx:key="newGoodsList" class="item" bindtap="openGoods" data-id="{{item.id}}">
+          <image class="img" src="{{item.img}}" mode="widthFix" />
+          <view class="text">
+            <view class="n">{{item.name}}</view>
+            <view class="d">{{item.desc}}</view>
+          </view>
         </view>
       </view>
     </view>
@@ -104,12 +107,13 @@
         <view>精品推荐</view>
         <view class="more" bindtap="openMoreList" data-comType="best">查看更多></view>
       </view>
-
-      <view wx:for="{{bestGoodsList}}" wx:key="bestGoodsList" class="best" bindtap="openGoods" data-id="{{item.id}}">
-        <image class="img" src="{{item.img}}" mode="widthFix" />
-        <view class="text">
-          <view class="n">{{item.name}}</view>
-          <view class="d">{{item.desc}}</view>
+      <view class='bookList'>
+        <view wx:for="{{bestGoodsList}}" wx:key="bestGoodsList" class="best" bindtap="openGoods" data-id="{{item.id}}">
+          <image class="img" src="{{item.img}}" mode="widthFix" />
+          <view class="text">
+            <view class="n">{{item.name}}</view>
+            <view class="d">{{item.desc}}</view>
+          </view>
         </view>
       </view>
     </view>

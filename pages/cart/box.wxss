@@ -1,0 +1,148 @@
+/* pages/cart/box.wxss */
+@import '../../pages/templates/dataEmptyTemplate.wxss';
+@import '../../pages/home.wxss';
+
+.scroll {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  -webkit-display: flex;
+  -webkit-flex-direction: column;
+  -webkit-justify-content: center;
+}
+
+.joinMembership {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  -webkit-display: flex;
+  -webkit-flex-direction: column;
+  -webkit-justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: rgb(247, 236, 176);
+}
+
+.joinMembership text {
+  width: 100%;
+  font-size: 28rpx;
+  color: red;
+  text-align: center;
+  margin-top: 30rpx;
+}
+
+.joinMembership .button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  -webkit-display: flex;
+  -webkit-flex-direction: column;
+  -webkit-justify-content: center;
+  width: 200rpx;
+  height: 70rpx;
+  font-size: 28rpx;
+  color: white;
+  text-align: center;
+  border-radius: 30rpx;
+  background: linear-gradient(to right, orange, rgb(255, 115, 0));
+  margin-top: 20rpx;
+  margin-bottom: 30rpx;
+}
+
+.address {
+
+}
+
+.boxList {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  -webkit-display: flex;
+  -webkit-flex-direction: column;
+  -webkit-justify-content: center;
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+}
+
+.boxList .boxItem {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  -webkit-display: flex;
+  -webkit-flex-direction: row;
+  -webkit-justify-content: center;
+  align-items: center;
+  font-size: 28rpx;
+  color: #696969;
+  background-color: yellow;
+  /* height: 200rpx; */
+  margin-top: 30rpx;
+}
+
+.boxList .boxItem .one {
+  width: 10%;
+  height: 100%;
+}
+
+.boxList .boxItem .two {
+  width: 20%;
+  height: 100%;
+}
+
+.boxList .boxItem .three {
+  width: 60%;
+  height: 100%;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+}
+
+.boxList .boxItem .four {
+  width: 10%;
+  height: 100%;
+}
+
+.boxList .boxItem image {
+  width: 100%;
+  /* height: 200rpx; */
+}
+
+.down {
+  margin: 30rpx;
+}
+
+.down button {
+  background-color: #fff;
+  color: red;
+  font-size: 24rpx;
+  width: 200rpx;
+  height: 55rpx;
+  margin-top: 20rpx;
+}
+
+.bottom-flex {
+  background-color: #fff;
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+
+.bottom-flex button {
+  float: right;
+  background-color: red;
+  color: #fff;
+  width: 25%;
+  font-size: 30rpx;
+  height: 80rpx;
+}
+
+.divLine {
+  background: #e0e3da;
+  width: 100%;
+  height: 2rpx;
+}

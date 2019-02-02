@@ -53,10 +53,27 @@
   margin-top: 6rpx;
 }
 
+.bookList {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: left;
+  -webkit-display: flex;
+  -webkit-flex-direction: row;
+  -webkit-flex-wrap: wrap;
+  -webkit-justify-content: left;
+  width: 100%;
+  align-items: flex-start;
+}
+
 .item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  -webkit-display: flex;
+  -webkit-flex-direction: column;
+  -webkit-justify-content: center;
   width: 31%;
-  height: 420rpx;
-  float: left;
   padding: 0rpx 8rpx 0rpx 8rpx;
 }
 
@@ -86,9 +103,13 @@
 }
 
 .best {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  -webkit-display: flex;
+  -webkit-flex-direction: column;
+  -webkit-justify-content: center;
   width: 47.5%;
-  float: left;
-  height: 550rpx;
   padding: 0rpx 8rpx 0rpx 8rpx;
 }
 

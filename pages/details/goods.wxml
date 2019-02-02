@@ -42,8 +42,8 @@
   <!-- 分割线 -->
   <view class='bottom-flex' style='bottom:{{pageBottom}}rpx'>
     <view class="divLine"></view>
-    <button>打开书包</button>
-    <button style='background-color: #ff6500;margin-right: 20rpx;'>加入书包</button>
+    <button bindtap='openBox'>打开书包</button>
+    <button bindtap='addToBox' style='background-color: #ff6500;margin-right: 20rpx;'>加入书包</button>
   </view>
 
 </view>

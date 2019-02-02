@@ -99,5 +99,24 @@ Page({
    */
   onShareAppMessage: function() {
 
+  },
+
+  openBox: function() {
+    wx.navigateBack({
+      
+    });
+
+    wx.switchTab({
+      url: '/pages/cart/box'
+    });
+    
+  },
+
+  addToBox: function() {
+    app.globalData.box.push(this.data.goodsID);
+    wx.setStorageSync('box', app.globalData.box);
+    wx.showToast({
+      title: '已加入书包'
+    });
   }
 })

@@ -18,11 +18,13 @@
     <view class="dividing-line" style="margin-top: 40rpx;"></view>
     <view class="down">
       <view class='biaoti'>套装目录（共{{goodsCount}}本）</view>
-      <view wx:for="{{goodsList}}" wx:key="goodsList" class="item" bindtap="" data-id="{{item.id}}" style='padding-bottom: 30rpx;'>
-        <image class="img" src="{{item.img}}" mode="widthFix" />
-        <view class="text">
-          <view class="n">{{item.name}}</view>
-          <button class='button'>加入书包</button>
+      <view class='bookList'>
+        <view wx:for="{{goodsList}}" wx:key="goodsList" class="item" data-id="{{item.id}}" style='padding-bottom: 30rpx;'>
+          <image class="img" src="{{item.img}}" mode="widthFix" />
+          <view class="text">
+            <view class="n">{{item.name}}</view>
+          </view>
+          <button class='button' bindtap='addToBox' data-id='{{item.id}}'>加入书包</button>
         </view>
       </view>
 
@@ -31,7 +33,7 @@
   <!-- 分割线 -->
   <view class='bottom-flex' style='bottom:{{pageBottom}}rpx'>
     <view class="divLine"></view>
-    <button>打开书包</button>
+    <button bindtap='openBox'>打开书包</button>
   </view>
 
 </view>

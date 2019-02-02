@@ -10,7 +10,14 @@ App({
     windowWidth: 0,
     windowHeight: 0,
     scrollViewHeight: 0,
-    pageBottom: 30
+    pageBottom: 30,
+    selectedCategory: {},
+    box: [],
+    selectedAddress: {
+      id: "",
+      name: "",
+      address: ""
+    }
   },
 
   onLaunch: function() {
@@ -50,7 +57,12 @@ App({
           _this.globalData.pageBottom = 60
         }
       }
-    })
+    });
+
+    let box = wx.getStorageSync('box');
+    if (box.length > 0) {
+      _this.globalData.box = box;
+    }
   },
 
   checkAuth: function() {

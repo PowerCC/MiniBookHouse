@@ -45,6 +45,7 @@ Page({
   },
   openCategory: function(e) {
     var id = e.currentTarget.dataset.id;
+    app.globalData.selectedCategory.id = id;
     wx.switchTab({
       url: '/pages/category'
     });
