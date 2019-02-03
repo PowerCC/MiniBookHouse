@@ -124,7 +124,10 @@ Page({
           }
 
           _this.setData({
-            boxList: result
+            boxList: result,
+            selectedCount: 0,
+            selectedAll: false,
+            totalPrice: 0
           });
         }
       },
@@ -176,9 +179,16 @@ Page({
   selectAllBook: function(e) {
     let selected = !this.data.selectedAll;
     var boxList = this.data.boxList;
+    var totalPrice = parseFloat(0);
     for (let i = 0; i < boxList.length; i++) {
       boxList[i].selected = selected;
+
+      if (selected) {
+        totalPrice += parseFloat(boxList[i].sell_price);
+      }
     }
+
+    totalPrice = totalPrice.toFixed(2);
 
     var selectedCount = 0;
     if (selected) {
@@ -188,7 +198,8 @@ Page({
     this.setData({
       boxList: boxList,
       selectedCount: selectedCount,
-      selectedAll: selected
+      selectedAll: selected,
+      totalPrice: totalPrice
     });
   },
 
