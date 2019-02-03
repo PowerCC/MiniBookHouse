@@ -19,7 +19,7 @@
     <view class="down">
       <view class='biaoti'>套装目录（共{{goodsCount}}本）</view>
       <view class='bookList'>
-        <view wx:for="{{goodsList}}" wx:key="goodsList" class="item" data-id="{{item.id}}" style='padding-bottom: 30rpx;'>
+        <view wx:for="{{goodsList}}" wx:key="goodsList" class="item" data-id="{{item.id}}" style='padding-bottom: 30rpx;' bindtap="openGoods">
           <image class="img" src="{{item.img}}" mode="widthFix" />
           <view class="text">
             <view class="n">{{item.name}}</view>

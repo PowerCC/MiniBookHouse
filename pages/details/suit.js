@@ -110,6 +110,12 @@ Page({
 
   },
 
+  openGoods: function(e) {
+    wx.navigateTo({
+      url: '/pages/details/goods?id=' + e.currentTarget.dataset.id
+    });
+  },
+
   openBox: function() {
     wx.navigateBack({
 

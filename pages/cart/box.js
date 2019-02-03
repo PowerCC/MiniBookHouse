@@ -11,7 +11,10 @@ Page({
     pageBottom: app.globalData.pageBottom,
     pageEmpty: false,
     box: [],
-    boxList: []
+    boxList: [],
+    selectedCount: 0,
+    selectedAll: false,
+    totalPrice: 0
   },
 
   /**
@@ -27,7 +30,7 @@ Page({
       });
 
       _this.setData({
-        scrollViewHeight: app.globalData.windowHeight - heightAll - _this.data.pageBottom
+        scrollViewHeight: app.globalData.windowHeight - heightAll - (80 / 750 * app.globalData.windowWidth)
       });
 
     }).exec();
@@ -46,7 +49,6 @@ Page({
   onShow: function() {
     let _this = this;
     let box = wx.getStorageSync('box');
-    console.log(box);
 
     if (box.length > 0) {
 
@@ -55,6 +57,8 @@ Page({
           _this.data.box.push(value);
         }
       });
+
+      console.log(_this.data.box);
 
       this.getGoodsSummaryByIds();
     }
@@ -109,10 +113,14 @@ Page({
 
           console.log(res.data.data.result);
 
-          let result = res.data.data.result;
+          var result = res.data.data.result;
 
           if (result.length == 0 && _this.data.takeSelfList.length == 0) {
             pageEmpty = true;
+          }
+
+          for (let i = 0; i < result.length; i++) {
+            result[i].selected = false;
           }
 
           _this.setData({
@@ -123,6 +131,90 @@ Page({
       complete() {
         wx.hideNavigationBarLoading();
         wx.stopPullDownRefresh();
+      }
+    });
+  },
+
+  selectBook: function(e) {
+    let bookIndex = e.currentTarget.dataset.index;
+    var s = this.data.boxList[bookIndex].selected;
+    s = !s;
+
+    let price = parseFloat(this.data.boxList[bookIndex].sell_price);
+    var totalPrice = parseFloat(this.data.totalPrice);
+
+    if (s == true && this.data.selectedCount < this.data.boxList.length) {
+      this.data.selectedCount += 1;
+      totalPrice += price;
+    } else if (this.data.selectedCount > 0) {
+      this.data.selectedCount -= 1;
+      totalPrice -= price;
+    }
+
+    totalPrice = totalPrice.toFixed(2);
+
+    var selectedAll = false;
+    if (this.data.selectedCount == this.data.boxList.length) {
+      selectedAll = true;
+    }
+
+    
+    console.log(this.data.selectedCount);
+    console.log(price);
+
+    var selected = "boxList[" + bookIndex + "].selected";
+
+    this.setData({
+      [selected]: s,
+      selectedCount: this.data.selectedCount,
+      selectedAll: selectedAll,
+      totalPrice: totalPrice
+    });
+
+  },
+
+  selectAllBook: function(e) {
+    let selected = !this.data.selectedAll;
+    var boxList = this.data.boxList;
+    for (let i = 0; i < boxList.length; i++) {
+      boxList[i].selected = selected;
+    }
+
+    var selectedCount = 0;
+    if (selected) {
+      selectedCount = this.data.boxList.length;
+    }
+
+    this.setData({
+      boxList: boxList,
+      selectedCount: selectedCount,
+      selectedAll: selected
+    });
+  },
+
+  deleteBook: function(e) {
+    let _this = this;
+    let id = e.currentTarget.dataset.id;
+    let bookIndex = e.currentTarget.dataset.index;
+    wx.showModal({
+      title: '提示',
+      content: '确定要从书包删除吗？',
+      success: function(res) {
+        if (res.confirm) {
+          let index = _this.data.box.indexOf(id);
+          console.log(index);
+
+          _this.data.box.splice(index, 1);
+
+          wx.setStorageSync('box', _this.data.box);
+
+          var boxList = _this.data.boxList;
+          boxList.splice(bookIndex, 1);
+
+          _this.setData({
+            boxList: boxList
+          });
+        }
       }
     });
   }

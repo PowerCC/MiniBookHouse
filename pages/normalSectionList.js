@@ -99,9 +99,15 @@ Page({
   },
 
   openThis: function(e) {
-    wx.navigateTo({
-      url: '/pages/category/single?id=' + e.currentTarget.dataset.id
-    })
+    if (this.data.comType == 'suit') {
+      wx.navigateTo({
+        url: '/pages/details/suit?id=' + e.currentTarget.dataset.id
+      })
+    } else {
+      wx.navigateTo({
+        url: '/pages/details/goods?id=' + e.currentTarget.dataset.id
+      })
+    }
   },
 
   getGoodsList: function() {

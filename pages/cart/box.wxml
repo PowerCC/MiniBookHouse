@@ -10,14 +10,15 @@
       </view>
       <view class='boxList'>
         <view class='boxItem' wx:for='{{boxList}}' wx:key='boxList' bindtap=''>
-          <view class='one'>
-            <view>ddd</view>
+          <view class='one' bindtap='selectBook' data-index='{{index}}'>
+            <view wx:if='{{item.selected}}' class='itemSelected'></view>
+            <view wx:else class='itemUnSelected'></view>
           </view>
           <view class='two'>
             <image src='{{item.img}}' mode='widthFix' />
           </view>
           <view class='three'>{{item.name}}</view>
-          <view class='four'>
+          <view class='four' bindtap='deleteBook' data-id='{{item.id}}' data-index='{{index}}'>
             <image src='/static/img/btn_delete.png' mode='aspectFit' style='height:50rpx;' />
           </view>
         </view>
@@ -27,7 +28,15 @@
   <!-- 分割线 -->
   <view class='bottom-flex' style='bottom:{{pageBottom}}rpx'>
     <view class="divLine"></view>
-    <button bindtap='openBox'>提交订单</button>
+    <view class='content'>
+      <view wx:if='{{selectedAll}}' class='itemSelected' style='margin-left: 30rpx;' bindtap='selectAllBook'></view>
+      <view wx:else class='itemUnSelected' style='margin-left: 30rpx;' bindtap='selectAllBook'></view>
+      <text>全选</text>
+      <text>已选{{selectedCount}}本</text>
+      <text>合计节省</text>
+      <text style='color:#696969;text-decoration:line-through;'>{{totalPrice}}</text>
+      <button bindtap=''>提交订单</button>
+    </view>
   </view>
 
 </view>

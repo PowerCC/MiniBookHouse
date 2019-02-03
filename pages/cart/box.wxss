@@ -56,7 +56,6 @@
 }
 
 .address {
-
 }
 
 .boxList {
@@ -80,8 +79,7 @@
   align-items: center;
   font-size: 28rpx;
   color: #696969;
-  background-color: yellow;
-  /* height: 200rpx; */
+  /* background-color: yellow; *//* height: 200rpx; */
   margin-top: 30rpx;
 }
 
@@ -109,7 +107,20 @@
 
 .boxList .boxItem image {
   width: 100%;
-  /* height: 200rpx; */
+}
+
+.itemUnSelected {
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 20rpx;
+  border: 2rpx solid #696969;
+}
+
+.itemSelected {
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 20rpx;
+  background-color: red;
 }
 
 .down {
@@ -132,8 +143,22 @@
   right: 0;
 }
 
+.bottom-flex .content {
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+  -webkit-display: flex;
+  -webkit-flex-direction: row;
+  -webkit-justify-content: right;
+  align-items: center;
+}
+
+.bottom-flex .content text {
+  font-size: 28rpx;
+  margin-left: 10rpx;
+}
+
 .bottom-flex button {
-  float: right;
   background-color: red;
   color: #fff;
   width: 25%;
