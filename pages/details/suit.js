@@ -123,6 +123,7 @@ Page({
   },
 
   addToBox: function(e) {
+    app.globalData.reloadBox = true;
     app.globalData.box.push(e.currentTarget.dataset.id);
     wx.setStorageSync('box', app.globalData.box);
     wx.showToast({

@@ -64,19 +64,23 @@ Page({
       selectedAddress: app.globalData.selectedAddress
     });
 
-    let box = wx.getStorageSync('box');
+    if (app.globalData.reloadBox) {
+      let box = wx.getStorageSync('box');
 
-    if (box.length > 0) {
+      if (box.length > 0) {
 
-      box.forEach(function(value, index, arrSelf) {
-        if (_this.data.box.indexOf(value) < 0) {
-          _this.data.box.push(value);
-        }
-      });
+        box.forEach(function(value, index, arrSelf) {
+          if (_this.data.box.indexOf(value) < 0) {
+            _this.data.box.push(value);
+          }
+        });
 
-      console.log(_this.data.box);
+        console.log(_this.data.box);
 
-      this.getGoodsSummaryByIds();
+        this.getGoodsSummaryByIds();
+      }
+
+      app.globalData.reloadBox = false;
     }
   },
 
@@ -271,6 +275,10 @@ Page({
 
       let gid = _this.data.selectedBoxList.toString();
 
+      console.log('gid: ' + gid);
+      console.log('selectedBoxList: ' + _this.data.selectedBoxList);
+      console.log('selectedIndexList: ' + _this.data.selectedIndexList);
+
       if (uid.length > 0 && aid.length > 0 && gid.length > 0) {
         wx.showNavigationBarLoading();
         wx.request({
@@ -285,10 +293,8 @@ Page({
 
             console.log(res.data);
 
+            var boxList = _this.data.boxList;
             if (res.data.code == 200) {
-
-              var boxList = _this.data.boxList;
-
               for (let i = 0; i < _this.data.selectedBoxList.length; i++) {
                 let id = _this.data.selectedBoxList[i];
                 let index = _this.data.box.indexOf(id);
@@ -298,14 +304,24 @@ Page({
                 wx.setStorageSync('box', _this.data.box);
 
                 _this.data.selectedCount -= 1;
-
-                let bookIndex = _this.data.selectedIndexList[i];
-                boxList.splice(bookIndex, 1);
               }
+
+              var newBoxList = [];
+              for (let i = 0; i < _this.data.box.length; i++) {
+                for (let j = 0; j < boxList.length; j++) {
+                  if (_this.data.box[i] == boxList[j].id) {
+                    newBoxList.push(boxList[j]);
+                  }
+                }
+              }
+
+              console.log('selectedCount: ' + _this.data.selectedCount);
+              console.log(_this.data.box);
+              console.log(newBoxList);
 
               _this.setData({
                 selectedCount: _this.data.selectedCount,
-                boxList: boxList
+                boxList: newBoxList
               });
 
               wx.showToast({
@@ -313,7 +329,7 @@ Page({
               });
             } else {
               wx.showToast({
-                title: '无法创建订单',
+                title: res.data.msg,
                 icon: 'none'
               });
             }
@@ -328,7 +344,7 @@ Page({
         });
       } else if (aid.length == 0) {
         wx.showToast({
-          title: '请选择还书地址',
+          title: '请选择地址',
           icon: 'none'
         });
       } else {

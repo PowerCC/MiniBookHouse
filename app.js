@@ -15,6 +15,7 @@ App({
     pageBottom: 30,
     selectedCategory: {},
     box: [],
+    reloadBox: true,
     selectedAddress: {
       id: "",
       name: "",

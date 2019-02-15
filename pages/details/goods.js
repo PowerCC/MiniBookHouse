@@ -108,6 +108,7 @@ Page({
   },
 
   addToBox: function() {
+    app.globalData.reloadBox = true;
     app.globalData.box.push(this.data.goodsID);
     wx.setStorageSync('box', app.globalData.box);
     wx.showToast({
