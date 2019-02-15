@@ -146,11 +146,12 @@
 .bottom-flex .content {
   display: flex;
   flex-direction: row;
-  justify-content: right;
+  justify-content: left;
   -webkit-display: flex;
   -webkit-flex-direction: row;
-  -webkit-justify-content: right;
+  -webkit-justify-content: left;
   align-items: center;
+  height: 80rpx;
 }
 
 .bottom-flex .content text {
@@ -159,6 +160,8 @@
 }
 
 .bottom-flex button {
+  position: absolute;
+  right: 30rpx;
   background-color: red;
   color: #fff;
   width: 25%;

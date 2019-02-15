@@ -1,29 +1,52 @@
 /* pages/user.wxss */
-page{
-    background-color: #ebebeb;
+
+page {
+  background-color: #ebebeb;
 }
-.user{
-    background-color: #ffffff;
-    margin-top: 10px;
-    padding: 10px 15px;
-    height: 60px;
+
+.userInfo {
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  -webkit-display: flex;
+  -webkit-flex-direction: column;
+  -webkit-justify-content: center;
+  align-items: center;
 }
-.user > .info{
-    padding: 8px 0 0 15px;
+
+.userInfo image {
+  margin-top: 30rpx;
+  margin-bottom: 30rpx;
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 75rpx;
 }
-.list{
-    background-color: #ffffff;
-    margin-top: 10px;
+
+.userInfo text {
+  margin-bottom: 30rpx;
+  font-size: 28rpx;
+  color: #696969;
 }
-.list > .item{
-    border-bottom: 1px solid #ebebeb;
-    padding-left: 20px;
-    height: 45px;
+
+.list {
+  background-color: #fff;
+  margin-top: 10px;
 }
-.list > .item image{
-    padding-top: 10px;
+
+.list > .item {
+  border-bottom: 1px solid #ebebeb;
+  padding-left: 20px;
+  height: 45px;
 }
-.list > .item > .t{
-    line-height: 45px;
-    padding-left: 10px;
+
+.list > .item image {
+  padding-top: 10px;
+}
+
+.list > .item > .t {
+  font-size: 28rpx;
+  color: #696969;
+  line-height: 45px;
+  padding-left: 10px;
 }

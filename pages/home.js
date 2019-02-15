@@ -7,6 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    authorize: app.globalData.authorize,
     scrollViewHeight: 0,
     indicatorDots: true,
     autoplay: true,
@@ -23,6 +24,26 @@ Page({
     newGoodsList: [],
     bestGoodsList: []
   },
+
+  getSetting: function() {
+    // 查看是否授权
+    wx.getSetting({
+      success(res) {
+        if (res.authSetting['scope.userInfo']) {
+          // 已经授权，可以直接调用 getUserInfo 获取头像昵称
+          app.globalData.authorize = true;
+        } else {
+          console.log('未授权');
+          app.globalData.authorize = false;
+
+          wx.redirectTo({
+            url: '/pages/authorize'
+          })
+        }
+      }
+    });
+  },
+
   imageLoad: function(e) {
     let windowWidth = wx.getSystemInfoSync().windowWidth;
     let width = e.detail.width;
@@ -31,12 +52,14 @@ Page({
       imageHeight: windowWidth * height / width,
     });
   },
+
   openMoreList: function(e) {
     var comType = e.currentTarget.dataset.comtype;
     wx.navigateTo({
       url: '/pages/normalSectionList?comType=' + comType
     });
   },
+
   openPolymerization: function(e) {
     var id = e.currentTarget.dataset.id;
     wx.navigateTo({
@@ -50,16 +73,19 @@ Page({
       url: '/pages/category'
     });
   },
+
   openSuit: function(e) {
     wx.navigateTo({
       url: '/pages/details/suit?id=' + e.currentTarget.dataset.id
     });
   },
+
   openGoods: function(e) {
     wx.navigateTo({
       url: '/pages/details/goods?id=' + e.currentTarget.dataset.id
     });
   },
+
   getSlideshow: function() {
     let _this = this;
     wx.request({
@@ -74,6 +100,7 @@ Page({
       }
     });
   },
+
   getCategoryList: function() {
     let _this = this;
     wx.request({
@@ -91,6 +118,7 @@ Page({
       }
     });
   },
+
   getGoodsList: function() {
     let _this = this;
     wx.showNavigationBarLoading();
@@ -114,7 +142,6 @@ Page({
     });
   },
 
-
   /**
    * 生命周期函数--监听页面加载
    */
@@ -136,6 +163,8 @@ Page({
     this.getSlideshow();
     this.getCategoryList();
     this.getGoodsList();
+
+    this.getSetting();
   },
 
   /**
@@ -149,7 +178,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-
+    if (app.globalData.authorize) {
+      app.checkSession();
+    }
   },
 
   /**

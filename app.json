@@ -18,7 +18,8 @@
     "pages/brand/polymerization",
     "pages/brand/introduction",
     "pages/cart/box",
-    "pages/cart/address"
+    "pages/cart/address",
+    "pages/authorize"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -48,6 +48,11 @@ Page({
    */
   onShow: function() {
     let _this = this;
+
+    if (app.globalData.authorize) {
+      app.checkSession();
+    }
+
     let box = wx.getStorageSync('box');
 
     if (box.length > 0) {
