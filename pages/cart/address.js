@@ -108,11 +108,16 @@ Page({
       }
     });
   },
+
   selectAddress: function(e) {
     app.globalData.selectedAddress.id = e.currentTarget.dataset.id;
     app.globalData.selectedAddress.name = e.currentTarget.dataset.name;
     app.globalData.selectedAddress.address = e.currentTarget.dataset.address;
 
     console.log(app.globalData.selectedAddress);
+
+    wx.navigateBack({
+      
+    })
   }
 })

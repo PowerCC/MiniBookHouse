@@ -1,4 +1,6 @@
 <!--pages/cart/box.wxml-->
+<import src='../../pages/templates/dataEmptyTemplate.wxml' />
+
 <view class="container">
   <scroll-view scroll-y class='scroll' style="height: {{scrollViewHeight}}px;">
     <view class='box'>
@@ -6,7 +8,10 @@
         <text>开通会员享无限借阅</text>
         <view class='button'>开通会员</view>
       </view>
-      <view class='address'>
+      <view class='address' bindtap='selectAddress'>
+        <text wx:if='{{selectedAddress.name.length == 0}}'>选择还书地址</text>
+        <text wx:else>{{selectedAddress.name}} {{selectedAddress.address}}</text>
+        <image class='rightImage' src="/static/img/btn_right.png" mode="aspectFit" />
       </view>
       <view class='boxList'>
         <view class='boxItem' wx:for='{{boxList}}' wx:key='boxList' bindtap=''>
@@ -26,7 +31,10 @@
     </view>
   </scroll-view>
   <!-- 分割线 -->
-  <view class='bottom-flex' style='bottom:{{pageBottom}}rpx'>
+  <view wx:if='{{boxList.length == 0}}' style='margin-top:120rpx;'>
+    <template is="dataEmpty" />
+  </view>
+  <view wx:else class='bottom-flex' style='bottom:{{pageBottom}}rpx'>
     <view class="divLine"></view>
     <view class='content'>
       <view wx:if='{{selectedAll}}' class='itemSelected' style='margin-left: 30rpx;' bindtap='selectAllBook'></view>
@@ -35,7 +43,7 @@
       <text>已选{{selectedCount}}本</text>
       <text>合计节省</text>
       <text style='color:#696969;text-decoration:line-through;'>{{totalPrice}}</text>
-      <button bindtap=''>提交订单</button>
+      <button bindtap='createOrder'>提交订单</button>
     </view>
   </view>
 

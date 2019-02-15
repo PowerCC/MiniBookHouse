@@ -10,8 +10,15 @@ Page({
     scrollViewHeight: 0,
     pageBottom: app.globalData.pageBottom,
     pageEmpty: false,
+    selectedAddress: {
+      id: '',
+      name: '',
+      address: ''
+    },
     box: [],
     boxList: [],
+    selectedBoxList: [],
+    selectedIndexList: [],
     selectedCount: 0,
     selectedAll: false,
     totalPrice: 0
@@ -52,6 +59,10 @@ Page({
     if (app.globalData.authorize) {
       app.checkSession();
     }
+
+    _this.setData({
+      selectedAddress: app.globalData.selectedAddress
+    });
 
     let box = wx.getStorageSync('box');
 
@@ -102,6 +113,12 @@ Page({
    */
   onShareAppMessage: function() {
 
+  },
+
+  selectAddress: function(e) {
+    wx.navigateTo({
+      url: '/pages/cart/address'
+    })
   },
 
   getGoodsSummaryByIds: function() {
@@ -166,7 +183,7 @@ Page({
       selectedAll = true;
     }
 
-    
+
     console.log(this.data.selectedCount);
     console.log(price);
 
@@ -233,5 +250,99 @@ Page({
         }
       }
     });
+  },
+
+  createOrder: function(e) {
+    let _this = this;
+
+    _this.data.selectedBoxList = [];
+    _this.data.selectedIndexList = [];
+
+    let uid = wx.getStorageSync('loginUserInfo').id;
+    let aid = _this.data.selectedAddress.id;
+
+    if (_this.data.selectedCount > 0) {
+      for (let i = 0; i < _this.data.boxList.length; i++) {
+        if (_this.data.boxList[i].selected) {
+          _this.data.selectedBoxList.push(_this.data.boxList[i].id);
+          _this.data.selectedIndexList.push(i);
+        }
+      }
+
+      let gid = _this.data.selectedBoxList.toString();
+
+      if (uid.length > 0 && aid.length > 0 && gid.length > 0) {
+        wx.showNavigationBarLoading();
+        wx.request({
+          url: app.globalData.baseApi + "outer/createOrder",
+          method: "GET",
+          data: {
+            uid: uid,
+            aid: aid,
+            gid: gid
+          },
+          success(res) {
+
+            console.log(res.data);
+
+            if (res.data.code == 200) {
+
+              var boxList = _this.data.boxList;
+
+              for (let i = 0; i < _this.data.selectedBoxList.length; i++) {
+                let id = _this.data.selectedBoxList[i];
+                let index = _this.data.box.indexOf(id);
+
+                _this.data.box.splice(index, 1);
+
+                wx.setStorageSync('box', _this.data.box);
+
+                _this.data.selectedCount -= 1;
+
+                let bookIndex = _this.data.selectedIndexList[i];
+                boxList.splice(bookIndex, 1);
+              }
+
+              _this.setData({
+                selectedCount: _this.data.selectedCount,
+                boxList: boxList
+              });
+
+              wx.showToast({
+                title: '订单已提交'
+              });
+            } else {
+              wx.showToast({
+                title: '无法创建订单',
+                icon: 'none'
+              });
+            }
+          },
+          fail(res) {
+            console.log(res);
+          },
+          complete() {
+            wx.hideNavigationBarLoading();
+            wx.stopPullDownRefresh();
+          }
+        });
+      } else if (aid.length == 0) {
+        wx.showToast({
+          title: '请选择还书地址',
+          icon: 'none'
+        });
+      } else {
+        wx.showToast({
+          title: '无法创建订单',
+          icon: 'none'
+        });
+      }
+
+    } else {
+      wx.showToast({
+        title: '请至少勾选一本图书',
+        icon: 'none'
+      });
+    }
   }
 })
