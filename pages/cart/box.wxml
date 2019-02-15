@@ -9,7 +9,7 @@
         <view class='button'>开通会员</view>
       </view>
       <view class='address' bindtap='selectAddress'>
-        <text wx:if='{{selectedAddress.name.length == 0}}'>选择还书地址</text>
+        <text wx:if='{{selectedAddress.name.length == 0}}'>选择地址</text>
         <text wx:else>{{selectedAddress.name}} {{selectedAddress.address}}</text>
         <image class='rightImage' src="/static/img/btn_right.png" mode="aspectFit" />
       </view>
