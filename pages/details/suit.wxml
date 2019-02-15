@@ -19,12 +19,12 @@
     <view class="down">
       <view class='biaoti'>套装目录（共{{goodsCount}}本）</view>
       <view class='bookList'>
-        <view wx:for="{{goodsList}}" wx:key="goodsList" class="item" data-id="{{item.id}}" style='padding-bottom: 30rpx;' bindtap="openGoods">
+        <view wx:for="{{goodsList}}" wx:key="goodsList" class="item" data-id="{{item.id}}" style='padding-bottom: 30rpx;' catchtap="openGoods">
           <image class="img" src="{{item.img}}" mode="widthFix" />
           <view class="text">
             <view class="n">{{item.name}}</view>
           </view>
-          <button class='button' bindtap='addToBox' data-id='{{item.id}}'>加入书包</button>
+          <button class='button' catchtap='addToBox' data-id='{{item.id}}'>加入书包</button>
         </view>
       </view>
 

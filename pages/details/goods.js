@@ -102,14 +102,9 @@ Page({
   },
 
   openBox: function() {
-    wx.navigateBack({
-      
-    });
-
     wx.switchTab({
       url: '/pages/cart/box'
     });
-    
   },
 
   addToBox: function() {

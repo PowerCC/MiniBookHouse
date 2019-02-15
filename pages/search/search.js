@@ -91,7 +91,7 @@ Page({
 
   openThis: function(e) {
     wx.navigateTo({
-      url: '/pages/category/single?id=' + e.currentTarget.dataset.id
+      url: '/pages/details/goods?id=' + e.currentTarget.dataset.id
     })
   },
 
