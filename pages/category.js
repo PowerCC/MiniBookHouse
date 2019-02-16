@@ -31,7 +31,19 @@ Page({
    */
   onLoad: function(options) {
     this.getCategoryListByParentId();
-    this.getGoodsListByFilters();
+
+    var filter = false;
+
+    if (app.globalData.categoryFilter.currentTarget) {
+      if (app.globalData.categoryFilter.currentTarget.dataset) {
+        filter = true;
+      }
+    }
+
+    if (filter == false) {
+      this.getGoodsListByFilters();
+    }
+
   },
 
   /**
@@ -47,6 +59,15 @@ Page({
   onShow: function() {
     if (app.globalData.authorize) {
       app.checkSession();
+    }
+
+    if (this.data.ageItems.length > 0 && this.data.languageItems.length > 0 && this.data.categoryItems.length > 0) {
+      if (app.globalData.categoryFilter.currentTarget) {
+        if (app.globalData.categoryFilter.currentTarget.dataset) {
+          this.resetFilter();
+          this.filterTap(app.globalData.categoryFilter);
+        }
+      }
     }
   },
 
@@ -85,6 +106,49 @@ Page({
    */
   onShareAppMessage: function() {
 
+  },
+
+  resetFilter: function() {
+    var ageResult = this.data.ageItems;
+    var languageResult = this.data.languageItems;
+    var classifyResult = this.data.categoryItems;
+
+    this.data.ageFilter = "0";
+    this.data.languageFilter = "0";
+    this.data.categoryFilter = "0";
+
+    for (let i = 0; i < ageResult.length; i++) {
+      if (i == 0) {
+        ageResult[i].selected = true;
+      } else {
+        ageResult[i].selected = false;
+      }
+    }
+
+    for (let i = 0; i < languageResult.length; i++) {
+      if (i == 0) {
+        languageResult[i].selected = true;
+      } else {
+        languageResult[i].selected = false;
+      }
+    }
+
+    for (let i = 0; i < classifyResult.length; i++) {
+      if (i == 0) {
+        classifyResult[i].selected = true;
+      } else {
+        classifyResult[i].selected = false;
+      }
+    }
+
+    this.setData({
+      pageIndex: "1",
+      ageItems: ageResult,
+      languageItems: languageResult,
+      categoryItems: classifyResult,
+      goodsList: [],
+      pageEnd: false,
+    });
   },
 
   getCategoryListByParentId: function() {
@@ -135,6 +199,13 @@ Page({
             languageItems: _this.data.languageItems.concat(languageResult),
             categoryItems: _this.data.categoryItems.concat(classifyResult)
           });
+
+          if (app.globalData.categoryFilter.currentTarget) {
+            if (app.globalData.categoryFilter.currentTarget.dataset) {
+              _this.resetFilter();
+              _this.filterTap(app.globalData.categoryFilter);
+            }
+          }
         }
       },
       complete() {
@@ -201,10 +272,15 @@ Page({
     var languageResult = _this.data.languageItems;
     var classifyResult = _this.data.categoryItems;
 
+    var toAgeView = '全部';
+    var toLanguageView = '全部';
+    var toClassifyView = '全部';
+
     if (pid == "0") {
       for (let i = 0; i < ageResult.length; i++) {
         if (i == index) {
           ageResult[i].selected = true;
+          toAgeView = "a" + ageResult[i].id;
         } else {
           ageResult[i].selected = false;
         }
@@ -215,6 +291,7 @@ Page({
       for (let i = 0; i < languageResult.length; i++) {
         if (i == index) {
           languageResult[i].selected = true;
+          toLanguageView = "l" + languageResult[i].id;
         } else {
           languageResult[i].selected = false;
         }
@@ -225,6 +302,7 @@ Page({
       for (let i = 0; i < classifyResult.length; i++) {
         if (i == index) {
           classifyResult[i].selected = true;
+          toClassifyView = "c" + classifyResult[i].id;
         } else {
           classifyResult[i].selected = false;
         }
@@ -240,12 +318,18 @@ Page({
       ageItems: ageResult,
       languageItems: languageResult,
       categoryItems: classifyResult,
+      toAgeItem: toAgeView,
+      toLanguageItem: toLanguageView,
+      toCategoryItem: toClassifyView,
       goodsList: [],
       pageEnd: false,
     });
 
     this.getGoodsListByFilters();
+
+    app.globalData.categoryFilter = {};
   },
+
   openThis: function(e) {
     wx.navigateTo({
       url: '/pages/details/goods?id=' + e.currentTarget.dataset.id

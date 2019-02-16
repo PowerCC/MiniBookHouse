@@ -26,7 +26,7 @@
 
     <!-- 带图标分类 -->
     <view wx:if="{{age.length > 0}}" style="margin:30rpx;">
-      <view wx:for="{{age}}" wx:key="" class="zhuanlan" bindtap="openCategory" data-id="{{item.id}}">
+      <view wx:for="{{age}}" wx:key="" class="zhuanlan" bindtap="openCategory" data-id="{{item.id}}" data-pid='0' data-index='{{index}}'>
         <image class="img" src="{{item.logo}}" mode='aspectFit' />
         <view class="text">{{item.name}}</view>
       </view>
@@ -36,7 +36,7 @@
 
     <!-- 不带图标分类 -->
     <view wx:if="{{goods.length > 0}}" style="margin:60rpx 30rpx 60rpx 30rpx;">
-      <view wx:for="{{goods}}" wx:key="" class="cat" bindtap="openCategory" data-id="{{item.id}}">
+      <view wx:for="{{goods}}" wx:key="" class="cat" bindtap="openCategory" data-id="{{item.id}}" data-pid='2' data-index='{{index}}'>
         <view class="text">{{item.name}}</view>
       </view>
     </view>

@@ -67,8 +67,23 @@ Page({
     });
   },
   openCategory: function(e) {
-    var id = e.currentTarget.dataset.id;
-    app.globalData.selectedCategory.id = id;
+
+    let pid = e.currentTarget.dataset.pid;
+    let cid = e.currentTarget.dataset.id;
+    let index = parseInt(e.currentTarget.dataset.index) + 1;
+
+    console.log(index);
+
+    app.globalData.categoryFilter = {
+      currentTarget: {
+        dataset: {
+          id: cid,
+          index: index,
+          pid: pid
+        }
+      }
+    }
+
     wx.switchTab({
       url: '/pages/category'
     });

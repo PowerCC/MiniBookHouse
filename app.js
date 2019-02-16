@@ -13,7 +13,7 @@ App({
     windowHeight: 0,
     scrollViewHeight: 0,
     pageBottom: 30,
-    selectedCategory: {},
+    categoryFilter: {},
     box: [],
     reloadBox: true,
     selectedAddress: {
