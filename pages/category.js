@@ -272,9 +272,9 @@ Page({
     var languageResult = _this.data.languageItems;
     var classifyResult = _this.data.categoryItems;
 
-    var toAgeView = '全部';
-    var toLanguageView = '全部';
-    var toClassifyView = '全部';
+    var toAgeView = 'a0';
+    var toLanguageView = 'l0';
+    var toClassifyView = 'c0';
 
     if (pid == "0") {
       for (let i = 0; i < ageResult.length; i++) {
