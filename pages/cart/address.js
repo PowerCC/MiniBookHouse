@@ -89,7 +89,7 @@ Page({
           if (result.length == 0 && _this.data.takeSelfList.length == 0) {
             pageEmpty = true;
           } else if (result.length > 0) {
-            page += 1;
+            page = page + 1;
           } else if (result.length == 0) {
             pageEnd = true;
           }

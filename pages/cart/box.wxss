@@ -106,17 +106,18 @@
 }
 
 .boxList .boxItem .one {
-  width: 10%;
+  width: 6%;
   height: 100%;
 }
 
 .boxList .boxItem .two {
   width: 20%;
   height: 100%;
+  padding-left: 30rpx;
 }
 
 .boxList .boxItem .three {
-  width: 60%;
+  width: 64%;
   height: 100%;
   padding-left: 20rpx;
   padding-right: 20rpx;
@@ -135,14 +136,14 @@
   width: 40rpx;
   height: 40rpx;
   border-radius: 20rpx;
-  border: 2rpx solid #696969;
+  /* border: 2rpx solid #696969; */
 }
 
 .itemSelected {
   width: 40rpx;
   height: 40rpx;
   border-radius: 20rpx;
-  background-color: red;
+  /* background-color: red; */
 }
 
 .down {

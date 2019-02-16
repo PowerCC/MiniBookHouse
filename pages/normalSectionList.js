@@ -129,7 +129,7 @@ Page({
           var pageEnd = true;
 
           if (result.length > 0) {
-            page += 1;
+            page = page + 1;
             pageEnd = false;
           }
 

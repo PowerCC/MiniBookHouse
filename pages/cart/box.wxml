@@ -14,10 +14,10 @@
         <image class='rightImage' src="/static/img/btn_right.png" mode="aspectFit" />
       </view>
       <view class='boxList'>
-        <view class='boxItem' wx:for='{{boxList}}' wx:key='boxList' bindtap=''>
+        <view class='boxItem' wx:for='{{boxList}}' wx:key='boxList'>
           <view class='one' bindtap='selectBook' data-index='{{index}}'>
-            <view wx:if='{{item.selected}}' class='itemSelected'></view>
-            <view wx:else class='itemUnSelected'></view>
+            <image wx:if='{{item.selected}}' class='itemSelected' src='/static/img/cart_goods_02.png' mode='aspectFit' />
+            <image wx:else='itemUnSelected' class='itemSelected' src='/static/img/cart_goods_01.png' mode='aspectFit' />
           </view>
           <view class='two'>
             <image src='{{item.img}}' mode='widthFix' />
@@ -37,8 +37,8 @@
   <view wx:else class='bottom-flex' style='bottom:{{pageBottom}}rpx'>
     <view class="divLine"></view>
     <view class='content'>
-      <view wx:if='{{selectedAll}}' class='itemSelected' style='margin-left: 30rpx;' bindtap='selectAllBook'></view>
-      <view wx:else class='itemUnSelected' style='margin-left: 30rpx;' bindtap='selectAllBook'></view>
+      <image wx:if='{{selectedAll}}' class='itemSelected' style='margin-left: 30rpx;' src='/static/img/cart_goods_02.png' mode='aspectFit' bindtap='selectAllBook' />
+      <image wx:else='itemUnSelected' class='itemSelected' style='margin-left: 30rpx;' src='/static/img/cart_goods_01.png' mode='aspectFit' bindtap='selectAllBook' />
       <text>全选</text>
       <text>已选{{selectedCount}}本</text>
       <text>合计节省</text>
