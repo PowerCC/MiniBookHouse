@@ -33,6 +33,15 @@ Page({
     if (app.globalData.authorize) {
       app.checkSession();
     }
+
+    let uid = wx.getStorageSync('loginUserInfo').id;
+    if (!uid) {
+      wx.redirectTo({
+        url: '/pages/authorize'
+      })
+
+      return;
+    }
   },
 
   /**

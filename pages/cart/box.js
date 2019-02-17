@@ -15,7 +15,6 @@ Page({
       name: '',
       address: ''
     },
-    box: [],
     boxList: [],
     selectedBoxList: [],
     selectedIndexList: [],
@@ -60,6 +59,15 @@ Page({
       app.checkSession();
     }
 
+    let uid = wx.getStorageSync('loginUserInfo').id;
+    if (!uid) {
+      wx.redirectTo({
+        url: '/pages/authorize'
+      })
+
+      return;
+    }
+
     _this.setData({
       selectedAddress: app.globalData.selectedAddress
     });
@@ -70,12 +78,12 @@ Page({
       if (box.length > 0) {
 
         box.forEach(function(value, index, arrSelf) {
-          if (_this.data.box.indexOf(value) < 0) {
-            _this.data.box.push(value);
+          if (app.globalData.box.indexOf(value) < 0) {
+            app.globalData.box.push(value);
           }
         });
 
-        console.log(_this.data.box);
+        console.log(app.globalData.box);
 
         this.getGoodsSummaryByIds();
       }
@@ -132,7 +140,7 @@ Page({
       url: app.globalData.baseApi + "outer/getGoodsSummaryByIds",
       method: "GET",
       data: {
-        ids: _this.data.box.toString()
+        ids: app.globalData.box.toString()
       },
       success(res) {
         if (res.data.code == 200) {
@@ -238,12 +246,12 @@ Page({
       content: '确定要从书包删除吗？',
       success: function(res) {
         if (res.confirm) {
-          let index = _this.data.box.indexOf(id);
+          let index = app.globalData.box.indexOf(id);
           console.log(index);
 
-          _this.data.box.splice(index, 1);
+          app.globalData.box.splice(index, 1);
 
-          wx.setStorageSync('box', _this.data.box);
+          wx.setStorageSync('box', app.globalData.box);
 
           var boxList = _this.data.boxList;
           boxList.splice(bookIndex, 1);
@@ -265,7 +273,26 @@ Page({
     let uid = wx.getStorageSync('loginUserInfo').id;
     let aid = _this.data.selectedAddress.id;
 
-    if (_this.data.selectedCount > 0) {
+    if (aid.length == 0) {
+      wx.showToast({
+        title: '请选择地址',
+        icon: 'none'
+      });
+
+      return;
+    }
+
+    if (_this.data.selectedCount == 0) {
+      wx.showToast({
+        title: '请至少选择1本图书',
+        icon: 'none'
+      });
+    } else if (_this.data.selectedCount > 5) {
+      wx.showToast({
+        title: '最多选择5本图书',
+        icon: 'none'
+      });
+    } else {
       for (let i = 0; i < _this.data.boxList.length; i++) {
         if (_this.data.boxList[i].selected) {
           _this.data.selectedBoxList.push(_this.data.boxList[i].id);
@@ -297,26 +324,26 @@ Page({
             if (res.data.code == 200) {
               for (let i = 0; i < _this.data.selectedBoxList.length; i++) {
                 let id = _this.data.selectedBoxList[i];
-                let index = _this.data.box.indexOf(id);
+                let index = app.globalData.box.indexOf(id);
 
-                _this.data.box.splice(index, 1);
+                app.globalData.box.splice(index, 1);
 
-                wx.setStorageSync('box', _this.data.box);
+                wx.setStorageSync('box', app.globalData.box);
 
                 _this.data.selectedCount -= 1;
               }
 
               var newBoxList = [];
-              for (let i = 0; i < _this.data.box.length; i++) {
+              for (let i = 0; i < app.globalData.box.length; i++) {
                 for (let j = 0; j < boxList.length; j++) {
-                  if (_this.data.box[i] == boxList[j].id) {
+                  if (app.globalData.box[i] == boxList[j].id) {
                     newBoxList.push(boxList[j]);
                   }
                 }
               }
 
               console.log('selectedCount: ' + _this.data.selectedCount);
-              console.log(_this.data.box);
+              console.log(app.globalData.box);
               console.log(newBoxList);
 
               _this.setData({
@@ -342,11 +369,6 @@ Page({
             wx.stopPullDownRefresh();
           }
         });
-      } else if (aid.length == 0) {
-        wx.showToast({
-          title: '请选择地址',
-          icon: 'none'
-        });
       } else {
         wx.showToast({
           title: '无法创建订单',
@@ -354,11 +376,6 @@ Page({
         });
       }
 
-    } else {
-      wx.showToast({
-        title: '请至少勾选一本图书',
-        icon: 'none'
-      });
     }
   }
 })
