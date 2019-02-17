@@ -116,6 +116,11 @@
   padding-left: 30rpx;
 }
 
+.boxList .boxItem .two image {
+  border: 1px solid #ECF0F1;
+  border-radius: 10rpx;
+}
+
 .boxList .boxItem .three {
   width: 64%;
   height: 100%;

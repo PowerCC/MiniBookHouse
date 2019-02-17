@@ -43,13 +43,15 @@
 .orderListItem .goods image {
   width: 20%;
   height: 100%;
-  padding-right: 30rpx;
+  border: 1px solid #ECF0F1;
+  border-radius: 10rpx;
 }
 
 .orderListItem .goods .text1 {
   width: 57%;
   height: 100%;
   word-wrap: break-word;
+  padding-left: 30rpx;
   /* background-color: yellow; */
 }
 
