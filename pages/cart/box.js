@@ -256,8 +256,31 @@ Page({
           var boxList = _this.data.boxList;
           boxList.splice(bookIndex, 1);
 
+          // _this.setData({
+          //   boxList: boxList
+          // });
+
+          var totalPrice = parseFloat(0);
+          var selectedCount = 0;
+          var selected = false;
+
+          for (let i = 0; i < boxList.length; i++) {
+            if (boxList[i].selected) {
+              selectedCount = selectedCount + 1;
+              totalPrice += parseFloat(boxList[i].sell_price);
+            }
+          }
+
+          totalPrice = totalPrice.toFixed(2);
+          if (selectedCount == boxList.length) {
+            selected = true;
+          }
+
           _this.setData({
-            boxList: boxList
+            boxList: boxList,
+            selectedCount: selectedCount,
+            selectedAll: selected,
+            totalPrice: totalPrice
           });
         }
       }
