@@ -47,6 +47,15 @@
   height: 80rpx;
 }
 
+.biaoti-center {
+  display: flex;
+  justify-content: center;
+  -webkit-display: flex;
+  -webkit-justify-content: center;
+  font-size: 34rpx;
+  height: 80rpx;
+}
+
 .more {
   color: #5e3e3e;
   font-size: 25rpx;

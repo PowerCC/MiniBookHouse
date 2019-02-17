@@ -103,9 +103,9 @@
 
     <!-- 精品推荐 -->
     <view wx:if="{{bestGoodsList.length > 0}}" style="margin:60rpx 30rpx 60rpx 30rpx;">
-      <view class="biaoti">
+      <view class="biaoti-center">
         <view>精品推荐</view>
-        <view class="more" bindtap="openMoreList" data-comType="best">查看更多></view>
+        <!-- <view class="more" bindtap="openMoreList" data-comType="best">查看更多></view> -->
       </view>
       <view class='bookList'>
         <view wx:for="{{bestGoodsList}}" wx:key="bestGoodsList" class="best" bindtap="openGoods" data-id="{{item.id}}">
