@@ -1,0 +1,25 @@
+<!--pages/order/orrowingOrder.wxml-->
+<import src='../../pages/templates/dataEmptyTemplate.wxml' />
+<view class="container" style='margin:30rpx 30rpx {{pageBottom}}rpx 30rpx;'>
+  <view class='orderList'>
+    <view wx:for="{{orderList}}" wx:key="orderList" class="orderListItem" data-id='{{item.id}}' data-name='{{item.name}}' data-address='{{item.address}}'>
+      <text>订单编号：{{item.order_no}}</text>
+      <text>创建时间：{{item.create_time}}</text>
+      <view class='goods'>
+        <image src='{{item.img}}' mode='widthFix' />
+        <view class='text1'>{{item.goods_array.name}}</view>
+        <view class='text2'>{{item.goods_price}}</view>
+      </view>
+      <view class='line'></view>
+    </view>
+  </view>
+  <view wx:if="{{pageEmpty}}" class="empty">
+    <template is="dataEmpty" />
+  </view>
+  <view class="clear"></view>
+  <view wx:if="{{pageEnd}}" class="end-page">
+    <view>------</view>
+    <view style="margin: 0rpx 20rpx;">到底了</view>
+    <view>------</view>
+  </view>
+</view>
