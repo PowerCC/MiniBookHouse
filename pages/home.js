@@ -142,6 +142,9 @@ Page({
       method: "GET",
       success(res) {
         if (res.data.code == 200) {
+
+          console.log(res.data.data.result);
+
           _this.setData({
             suitGoodsList: res.data.data.result.suit,
             hotGoodsList: res.data.data.result.hot,

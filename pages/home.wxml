@@ -35,7 +35,7 @@
     <view class="clear"></view>
 
     <!-- 不带图标分类 -->
-    <view wx:if="{{goods.length > 0}}" style="margin:60rpx 30rpx 60rpx 30rpx;">
+    <view wx:if="{{goods.length > 0}}" style="margin:30rpx 30rpx 30rpx 30rpx;">
       <view wx:for="{{goods}}" wx:key="" class="cat" bindtap="openCategory" data-id="{{item.id}}" data-pid='2' data-index='{{index}}'>
         <view class="text">{{item.name}}</view>
       </view>
@@ -45,7 +45,7 @@
     <view class="dividing-line" style="margin-top: 60rpx;"></view>
 
     <!-- 套装推荐 -->
-    <view wx:if="{{suitGoodsList.length > 0}}" style="margin:60rpx 30rpx 60rpx 30rpx;">
+    <view wx:if="{{suitGoodsList.length > 0}}" style="margin:30rpx 30rpx 30rpx 30rpx;">
       <view class="biaoti">
         <view>套装推荐</view>
         <view class="more" bindtap="openMoreList" data-comType="suit">查看更多></view>
@@ -64,7 +64,7 @@
     <view class="clear"></view>
 
     <!-- 热门图书 -->
-    <view wx:if="{{hotGoodsList.length > 0}}" style="margin:60rpx 30rpx 60rpx 30rpx;">
+    <view wx:if="{{hotGoodsList.length > 0}}" style="margin:30rpx 30rpx 30rpx 30rpx;">
       <view class="biaoti">
         <view>热门图书</view>
         <view class="more" bindtap="openMoreList" data-comType="hot">查看更多></view>
@@ -83,7 +83,7 @@
     <view class="clear"></view>
 
     <!-- 新到图书 -->
-    <view wx:if="{{newGoodsList.length > 0}}" style="margin:60rpx 30rpx 60rpx 30rpx;">
+    <view wx:if="{{newGoodsList.length > 0}}" style="margin:30rpx 30rpx 30rpx 30rpx;">
       <view class="biaoti">
         <view>新到图书</view>
         <view class="more" bindtap="openMoreList" data-comType="new">查看更多></view>
@@ -102,18 +102,19 @@
     <view class="clear"></view>
 
     <!-- 精品推荐 -->
-    <view wx:if="{{bestGoodsList.length > 0}}" style="margin:60rpx 30rpx 60rpx 30rpx;">
+    <view wx:if="{{bestGoodsList.length > 0}}" style="margin:30rpx 30rpx 30rpx 30rpx;">
       <view class="biaoti-center">
         <view>精品推荐</view>
         <!-- <view class="more" bindtap="openMoreList" data-comType="best">查看更多></view> -->
       </view>
       <view class='bookList'>
         <view wx:for="{{bestGoodsList}}" wx:key="bestGoodsList" class="best" bindtap="openGoods" data-id="{{item.id}}">
-          <image class="img" src="{{item.img}}" mode="widthFix" />
+          <image class="img" src="{{item.img}}" mode="aspectFit" />
           <view class="text">
             <view class="n">{{item.name}}</view>
             <view class="d">{{item.desc}}</view>
           </view>
+          <view class="price">{{item.sell_price}}</view>
         </view>
       </view>
     </view>
