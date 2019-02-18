@@ -40,9 +40,12 @@ Page({
       method: "GET",
       data: {
         id: _this.data.goodsID
-      }, // 这里换成动态参数
+      },
       success(res) {
         if (res.data.code == 200) {
+
+          console.log(res.data.data.result);
+
           _this.setData({
             goodsInfo: res.data.data.result
           })

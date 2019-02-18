@@ -35,6 +35,7 @@
   width: 60%;
   border: 1px solid #fff;
   margin-left: 30rpx;
+  margin-right: 30rpx;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -42,7 +43,7 @@
   -webkit-flex-direction: column;
   -webkit-justify-content: center;
   font-size: 28rpx;
-  text-align: center;
+  text-align: left;
   color: #696969;
   align-items: baseline;
 }

@@ -7,11 +7,12 @@
       </view>
       <view class="right">
         <view>{{goodsInfo.name}}</view>
-        <view>作者：{{goodsInfo.author}}</view>
+        <view>作者名：{{goodsInfo.author}}</view>
         <view>出版社：{{goodsInfo.press}}</view>
         <view>语言：{{goodsInfo.language}}</view>
         <view>年龄：{{goodsInfo.age}}</view>
         <view>分类：{{goodsInfo.category}}</view>
+        <view>价格：{{goodsInfo.sell_price}}</view>
       </view>
     </view>
 
