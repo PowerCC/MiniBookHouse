@@ -87,7 +87,7 @@ Page({
       method: "GET",
       data: {
         uid: _this.data.uid,
-        status: "2"
+        tag: "r"
       },
       success(res) {
         if (res.data.code == 200) {

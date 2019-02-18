@@ -43,7 +43,7 @@
 .orderListItem .goods image {
   width: 20%;
   height: 100%;
-  border: 1px solid #ECF0F1;
+  border: 1px solid #ecf0f1;
   border-radius: 10rpx;
 }
 
@@ -60,6 +60,7 @@
   height: 100%;
   /* background-color: red; */
   padding-left: 30rpx;
+  text-decoration: line-through;
 }
 
 .orderListItem text {

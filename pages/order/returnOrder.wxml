@@ -5,6 +5,7 @@
     <view wx:for="{{orderList}}" wx:key="orderList" class="orderListItem" data-id='{{item.id}}' data-name='{{item.name}}' data-address='{{item.address}}'>
       <text>订单编号：{{item.order_no}}</text>
       <text>创建时间：{{item.create_time}}</text>
+      <text>订单状态：{{item.status_txt}}</text>
       <view class='goods'>
         <image src='{{item.img}}' mode='widthFix' />
         <view class='text1'>{{item.goods_array.name}}</view>
