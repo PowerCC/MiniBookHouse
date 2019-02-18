@@ -142,7 +142,7 @@ Page({
     }
 
     this.setData({
-      pageIndex: "1",
+      pageIndex: 1,
       ageItems: ageResult,
       languageItems: languageResult,
       categoryItems: classifyResult,
@@ -314,7 +314,7 @@ Page({
     console.log(ageResult);
 
     _this.setData({
-      pageIndex: "1",
+      pageIndex: 1,
       ageItems: ageResult,
       languageItems: languageResult,
       categoryItems: classifyResult,
