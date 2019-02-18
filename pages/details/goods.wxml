@@ -9,10 +9,19 @@
         <view>{{goodsInfo.name}}</view>
         <view>作者名：{{goodsInfo.author}}</view>
         <view>出版社：{{goodsInfo.press}}</view>
-        <view>语言：{{goodsInfo.language}}</view>
-        <view>年龄：{{goodsInfo.age}}</view>
-        <view>分类：{{goodsInfo.category}}</view>
-        <view>价格：{{goodsInfo.sell_price}}</view>
+        <view>
+          <text space="nbsp">语   言：{{goodsInfo.language}}</text>
+        </view>
+        <view>
+          <text space="nbsp">年   龄：{{goodsInfo.age}}</text>
+        </view>
+        <view>
+          <text space="nbsp">分   类：{{goodsInfo.category}}</text>
+        </view>
+        <view>
+          <text space="nbsp">价   格：</text>
+          <text style='text-decoration:line-through;'>{{goodsInfo.sell_price}}</text>
+        </view>
       </view>
     </view>
 
