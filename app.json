@@ -21,7 +21,8 @@
     "pages/cart/address",
     "pages/authorize",
     "pages/order/orrowingOrder",
-    "pages/order/returnOrder"
+    "pages/order/returnOrder",
+    "pages/common/contactInfo"
   ],
   "window": {
     "backgroundTextStyle": "light",

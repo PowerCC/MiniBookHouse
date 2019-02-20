@@ -1,4 +1,4 @@
-// pages/user.js
+// pages/common/contactInfo.js
 const app = getApp();
 
 Page({
@@ -7,16 +7,16 @@ Page({
    * 页面的初始数据
    */
   data: {
-    userInfo: {}
+    pageBottom: app.globalData.pageBottom,
+    wechat: '',
+    mobile: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    this.setData({
-      userInfo: wx.getStorageSync('userInfo')
-    })
+    this.getContactInfo();
   },
 
   /**
@@ -30,18 +30,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-    if (app.globalData.authorize) {
-      app.checkSession();
-    }
 
-    let uid = wx.getStorageSync('loginUserInfo').id;
-    if (!uid) {
-      wx.redirectTo({
-        url: '/pages/authorize'
-      })
-
-      return;
-    }
   },
 
   /**
@@ -79,28 +68,27 @@ Page({
 
   },
 
-  openOrrowingOrder: function(e) {
-    wx.navigateTo({
-      url: '/pages/order/orrowingOrder'
-    });
-  },
+  getContactInfo: function() {
+    let _this = this;
+    wx.showNavigationBarLoading();
+    wx.request({
+      url: app.globalData.baseApi + "outer/getContactInfo",
+      method: "GET",
+      success(res) {
+        if (res.data.code == 200) {
 
-  openReturnOrder: function(e) {
-    wx.navigateTo({
-      url: '/pages/order/returnOrder'
-    });
-  },
+          console.log(res.data.data.result);
 
-  openMyMember: function(e) {
-    // wx.navigateTo({
-    //   url: '/pages/order/orrowingOrder'
-    // });
-  },
-
-  call: function(e) {
-    wx.navigateTo({
-      url: '/pages/common/contactInfo'
+          _this.setData({
+            wechat: res.data.data.result.wechat,
+            mobile: res.data.data.result.mobile
+          });
+        }
+      },
+      complete() {
+        wx.hideNavigationBarLoading();
+        wx.stopPullDownRefresh();
+      }
     });
   }
-
-});
+})
