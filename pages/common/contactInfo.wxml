@@ -2,7 +2,7 @@
 
 <view class='contactInfo'>
   <view>
-    <text space="nbsp">微   信：{{wechat}}</text>
-    <text bindtap='call'>手机号：{{mobile}}</text>
+    <text>微信：{{wechat}}</text>
+    <text bindtap='call'>手号：{{mobile}}</text>
   </view>
 </view>

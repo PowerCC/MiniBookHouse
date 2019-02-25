@@ -10,6 +10,10 @@ Page({
     scrollViewHeight: 0,
     pageBottom: app.globalData.pageBottom,
     pageEmpty: false,
+    level: 'joinMembership',
+    maxBorrowBooks: 5,
+    validDateFrom: '',
+    validDateTo: '',
     selectedAddress: {
       id: '',
       name: '',
@@ -72,6 +76,8 @@ Page({
       selectedAddress: app.globalData.selectedAddress
     });
 
+    this.getVipInfo();
+
     if (app.globalData.reloadBox) {
       let box = wx.getStorageSync('box');
 
@@ -131,6 +137,38 @@ Page({
     wx.navigateTo({
       url: '/pages/cart/address'
     })
+  },
+
+  getVipInfo: function() {
+    let _this = this;
+    let uid = wx.getStorageSync('loginUserInfo').id;
+
+    wx.showNavigationBarLoading();
+    wx.request({
+      url: app.globalData.baseApi + "outer/getVipInfo",
+      method: "GET",
+      data: {
+        uid: uid
+      },
+      success(res) {
+        if (res.data.code == 200) {
+
+          console.log(res.data.data.result);
+
+
+          _this.setData({
+            level: res.data.data.result.level,
+            maxBorrowBooks: res.data.data.result.max_borrow_books,
+            validDateFrom: res.data.data.result.valid_date_from,
+            validDateTo: res.data.data.result.valid_date_to
+          });
+        }
+      },
+      complete() {
+        wx.hideNavigationBarLoading();
+        wx.stopPullDownRefresh();
+      }
+    });
   },
 
   getGoodsSummaryByIds: function() {
@@ -310,9 +348,10 @@ Page({
         title: '请至少选择1本图书',
         icon: 'none'
       });
-    } else if (_this.data.selectedCount > 5) {
+    } else if (_this.data.selectedCount > _this.data.maxBorrowBooks) {
+      let count = _this.data.maxBorrowBooks;
       wx.showToast({
-        title: '最多选择5本图书',
+        title: '最多选择' + count + '本图书',
         icon: 'none'
       });
     } else {

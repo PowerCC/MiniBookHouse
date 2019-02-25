@@ -55,6 +55,28 @@
   margin-bottom: 30rpx;
 }
 
+.membership {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  -webkit-display: flex;
+  -webkit-flex-direction: column;
+  -webkit-justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: rgb(247, 236, 176);
+  padding-top: 30rpx;
+  padding-bottom: 30rpx;
+}
+
+.membership text {
+  width: 100%;
+  font-size: 32rpx;
+  color: red;
+  text-align: left;
+  margin-left: 60rpx;
+}
+
 .address {
   display: flex;
   flex-direction: row;
@@ -117,7 +139,7 @@
 }
 
 .boxList .boxItem .two image {
-  border: 1px solid #ECF0F1;
+  border: 1px solid #ecf0f1;
   border-radius: 10rpx;
 }
 
