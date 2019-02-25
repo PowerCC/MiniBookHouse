@@ -3,6 +3,6 @@
 <view class='contactInfo'>
   <view>
     <text space="nbsp">微   信：{{wechat}}</text>
-    <text>手机号：{{mobile}}</text>
+    <text bindtap='call'>手机号：{{mobile}}</text>
   </view>
 </view>

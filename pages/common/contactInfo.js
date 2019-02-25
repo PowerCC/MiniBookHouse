@@ -90,5 +90,12 @@ Page({
         wx.stopPullDownRefresh();
       }
     });
+  },
+
+  call: function(e) {
+    let _this = this;
+    wx.makePhoneCall({
+      phoneNumber: _this.data.mobile
+    })
   }
 })
