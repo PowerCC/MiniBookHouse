@@ -6,6 +6,14 @@
   overflow: hidden;
 }
 
+.logo {
+  text-align: center;
+}
+
+.logo image {
+  width: 400rpx;
+}
+
 .desc {
   font-size: 28rpx;
   color: #696969;
