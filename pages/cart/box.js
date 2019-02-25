@@ -334,6 +334,15 @@ Page({
     let uid = wx.getStorageSync('loginUserInfo').id;
     let aid = _this.data.selectedAddress.id;
 
+    if (_this.data.level == 'joinMembership') {
+      wx.showToast({
+        title: '请先开通会员',
+        icon: 'none'
+      });
+
+      return;
+    }
+
     if (aid.length == 0) {
       wx.showToast({
         title: '请选择地址',
