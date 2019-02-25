@@ -1,7 +1,7 @@
 //app.js
 App({
   globalData: {
-    baseApi: "https://open.hunli.baihe.com/",
+    baseApi: "https://xxc.hunli.baihe.com/",
     authorize: true,
     cartList: [],
     cartNum: 0,
