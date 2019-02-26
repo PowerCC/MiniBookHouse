@@ -12,6 +12,7 @@ Page({
     pageEmpty: false,
     level: 'joinMembership',
     maxBorrowBooks: 5,
+    isValid: 0,
     validDateFrom: '',
     validDateTo: '',
     selectedAddress: {
@@ -155,10 +156,10 @@ Page({
 
           console.log(res.data.data.result);
 
-
           _this.setData({
             level: res.data.data.result.level,
             maxBorrowBooks: res.data.data.result.max_borrow_books,
+            isValid: res.data.data.result.is_valid,
             validDateFrom: res.data.data.result.valid_date_from,
             validDateTo: res.data.data.result.valid_date_to
           });
@@ -334,7 +335,7 @@ Page({
     let uid = wx.getStorageSync('loginUserInfo').id;
     let aid = _this.data.selectedAddress.id;
 
-    if (_this.data.level == 'joinMembership') {
+    if (_this.data.level == 'joinMembership' || _this.data.isValid == 0) {
       wx.showToast({
         title: '请先开通会员',
         icon: 'none'
