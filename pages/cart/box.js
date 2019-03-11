@@ -13,8 +13,8 @@ Page({
     level: 'joinMembership',
     maxBorrowBooks: 5,
     isValid: 0,
-    validDateFrom: '',
-    validDateTo: '',
+    vipDateFrom: '',
+    vipDateTo: '',
     selectedAddress: {
       id: '',
       name: '',
@@ -160,8 +160,8 @@ Page({
             level: res.data.data.result.level,
             maxBorrowBooks: res.data.data.result.max_borrow_books,
             isValid: res.data.data.result.is_valid,
-            validDateFrom: res.data.data.result.valid_date_from,
-            validDateTo: res.data.data.result.valid_date_to
+            vipDateFrom: res.data.data.result.vip_date_from,
+            vipDateTo: res.data.data.result.vip_date_to
           });
         }
       },

@@ -10,7 +10,7 @@
       </view>
       <view wx:else class='membership'>
         <text>会员等级：{{level}}</text>
-        <text>有效期至：{{validDateTo}}</text>
+        <text>有效期至：{{vipDateTo}}</text>
       </view>
       <view class='address' bindtap='selectAddress'>
         <text wx:if='{{selectedAddress.name.length == 0}}'>选择地址</text>
