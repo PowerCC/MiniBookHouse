@@ -52,7 +52,7 @@
       </view>
       <view class='bookList'>
         <view wx:for="{{suitGoodsList}}" wx:key="suitGoodsList" class="item" bindtap="openSuit" data-id="{{item.id}}">
-          <image class="img" src="{{item.img}}" mode="widthFix" />
+          <image class="img" src="{{item.img}}" mode="widthFix" style='border:0' />
           <view class="text">
             <view class="n">{{item.name}}</view>
             <view class="d">{{item.desc}}</view>
