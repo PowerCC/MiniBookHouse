@@ -11,7 +11,6 @@
     "pages/user/about",
     "pages/common/auth",
     "pages/normalSectionList",
-    "pages/boutiqueSectionList",
     "pages/search/search",
     "pages/details/goods",
     "pages/details/suit",
