@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/payment/paymentHome",
     "pages/home",
     "pages/category",
     "pages/cart",
@@ -22,6 +23,7 @@
     "pages/order/orrowingOrder",
     "pages/order/returnOrder",
     "pages/common/contactInfo"
+    
   ],
   "window": {
     "backgroundTextStyle": "light",

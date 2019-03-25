@@ -1,0 +1,44 @@
+<!--pages/payment/paymentHome.wxml-->
+<view class='paymentContent'>
+  <view class='section1'>
+    <image src='/static/img/pay_bg.jpeg' mode='widthFix' />
+    <view class='desc'>
+      <text>200元押金</text>
+      <text>可退</text>
+    </view>
+    <view class='button1'>立即支付</view>
+  </view>
+  <view class='section2'>
+    <view></view>
+    <view class='vipItems'>
+      <view class='vipSubItems'>
+        <image src='/static/img/pay_vip_item.png' mode='scaleFill' />
+        <view class='item'>
+          <text class='text1'>VIP专属绘本特权</text>
+          <text class='text2'>TCM自然拼读绘本、鹅妈妈童谣、柯林斯大猫分级读物持续更新中</text>
+        </view>
+      </view>
+      <view class='vipSubItems'>
+        <image src='/static/img/pay_vip_item.png' mode='scaleFill' />
+        <view class='item'>
+          <text class='text1'>终身不限次智能纠音特权</text>
+          <text class='text2'>VIP用户享受权威专业语音打分，智能纠正发音</text>
+        </view>
+      </view>
+      <view class='vipSubItems'>
+        <image src='/static/img/pay_vip_item.png' mode='scaleFill' />
+        <view class='item'>
+          <text class='text1'>贝壳红花翻倍特权</text>
+          <text class='text2'>每次获得贝壳和红花都能翻倍哦~</text>
+        </view>
+      </view>
+      <view class='vipSubItems'>
+        <image src='/static/img/pay_vip_item.png' mode='scaleFill' />
+        <view class='item'>
+          <text class='text1'>解锁全部绘本讲解特权</text>
+          <text class='text2'>所有讲解无需分享就能全部解锁哦</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
