@@ -99,6 +99,9 @@ Page({
             'paySign': _this.data.paySign,
             success: function(res) {
               console.log(res);
+              wx.navigateBack({
+                
+              });
             },
             fail: function(res) {
               console.log(res);
