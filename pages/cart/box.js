@@ -326,6 +326,12 @@ Page({
     });
   },
 
+  payment: function(e) {
+    wx.navigateTo({
+      url: '/pages/payment/paymentHome',
+    });
+  },
+
   createOrder: function(e) {
     let _this = this;
 
@@ -336,9 +342,8 @@ Page({
     let aid = _this.data.selectedAddress.id;
 
     if (_this.data.level == 'joinMembership' || _this.data.isValid == 0) {
-      wx.showToast({
-        title: '请先开通会员',
-        icon: 'none'
+      wx.navigateTo({
+        url: '/pages/payment/paymentHome',
       });
 
       return;

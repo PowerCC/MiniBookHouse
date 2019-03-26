@@ -6,7 +6,7 @@
       <text>200元押金</text>
       <text>可退</text>
     </view>
-    <view class='button1'>立即支付</view>
+    <view class='button1' bindtap='payment'>立即支付</view>
   </view>
   <view class='section2'>
     <view></view>
@@ -39,6 +39,7 @@
           <text class='text2'>所有讲解无需分享就能全部解锁哦</text>
         </view>
       </view>
+      <view class='button2' bindtap='payment'>立即支付</view>
     </view>
   </view>
 </view>
