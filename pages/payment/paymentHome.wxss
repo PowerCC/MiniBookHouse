@@ -24,19 +24,35 @@
   width: 100%;
   background-color: white;
   margin-bottom: 30rpx;
-}
-
-.paymentContent .section1 .topImage {
-  margin-top: 30rpx;
-  margin-left: 45rpx;
-  margin-bottom: 30rpx;
-  padding-right: 240rpx;
-  width: 60%;
+  position: relative;
 }
 
 .paymentContent .section1 .desc {
-  width: 85%;
+  width: 90%;
   margin: 30rpx;
+}
+
+.paymentContent .section1 .wePay {
+  position: relative;
+  padding-top: 30rpx;
+  padding-bottom: 20rpx;
+  width: 90%;
+  height: 50rpx;
+}
+
+.paymentContent .section1 .wePay image {
+  position: absolute;
+  left: 0;
+  width: 25%;
+}
+
+.paymentContent .section1 .avatar {
+  position: absolute;
+  top: 60rpx;
+  left: 65rpx;
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50rpx;
 }
 
 .paymentContent .section1 .button1 {
@@ -47,11 +63,11 @@
   -webkit-flex-direction: column;
   -webkit-justify-content: center;
   align-items: center;
-  width: 85%;
+  width: 90%;
   height: 100rpx;
   margin: 30rpx;
-  background-color: #C28FC2;
-  border-radius: 40rpx;
+  background-color: #EA685F;
+  border-radius: 30rpx;
 }
 
 .paymentContent .section2 {
