@@ -99,15 +99,6 @@ Page({
             'paySign': _this.data.paySign,
             success: function(res) {
               console.log(res);
-              wx.showModal({
-                title: '提示',
-                content: '支付成功！',
-                success: function(res) {
-                  wx.navigateBack({
-
-                  });
-                }
-              });
             },
             fail: function(res) {
               console.log(res);
