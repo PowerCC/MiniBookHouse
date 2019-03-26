@@ -11,6 +11,8 @@ Page({
     pageIndex: 1,
     pageEmpty: false,
     pageEnd: false,
+    imageWidth: 0,
+    imageHeight: 0,
     bid: "",
     brandDetail: {},
     goodsList: []
@@ -23,8 +25,11 @@ Page({
 
     let _this = this;
 
+    let windowWidth = wx.getSystemInfoSync().windowWidth;
     this.setData({
-      bid: options.id,
+      imageWidth: windowWidth,
+      imageHeight: windowWidth * (200 / 320),
+      bid: options.id
     });
 
     this.getBrandDetailByBrandId();

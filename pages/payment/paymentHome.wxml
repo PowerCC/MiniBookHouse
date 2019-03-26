@@ -1,11 +1,8 @@
 <!--pages/payment/paymentHome.wxml-->
 <view class='paymentContent'>
   <view class='section1'>
-    <image src='/static/img/pay_bg.jpeg' mode='widthFix' />
-    <view class='desc'>
-      <text>200元押金</text>
-      <text>可退</text>
-    </view>
+    <image class='topImage' src='/static/img/pay_bg.jpeg' mode='widthFix' />
+    <image class='desc' src='/static/img/vip_200.png' mode='widthFix' />
     <view class='button1' bindtap='payment'>立即支付</view>
   </view>
   <view class='section2'>

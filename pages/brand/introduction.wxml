@@ -4,11 +4,11 @@
   <view class='list'>
     <view class="brandDetailTitle">
       <view>
-        <image class='bgImage' src="{{brandDetail.background_img}}" mode="widthFix" />
+        <image class='bgImage' src="{{brandDetail.background_img}}" mode="aspectFill" style='width: {{imageWidth}}px;height:{{imageHeight}}px;' />
         <image class='logoImage' src="{{brandDetail.logo}}" mode="aspectFit" />
       </view>
-      <text style='margin: 150rpx 30rpx 0rpx 30rpx;font-size: 40rpx;'>{{brandDetail.name}}</text>
-      <text style='margin: 0rpx 30rpx 100rpx 30rpx;font-size: 30rpx;'>相关作品：{{brandDetail.goodsCount}}本</text>
+      <text style='margin: 120rpx 30rpx 0rpx 30rpx;font-size: 40rpx;'>{{brandDetail.name}}</text>
+      <text style='margin: 0rpx 30rpx 50rpx 30rpx;font-size: 30rpx;'>相关作品：{{brandDetail.goodsCount}}本</text>
     </view>
     <view class='description'>
       <rich-text>{{brandDetail.description}}</rich-text>

@@ -26,7 +26,7 @@
   margin-bottom: 30rpx;
 }
 
-.paymentContent .section1 image {
+.paymentContent .section1 .topImage {
   margin-top: 30rpx;
   margin-left: 45rpx;
   margin-bottom: 30rpx;
@@ -35,18 +35,8 @@
 }
 
 .paymentContent .section1 .desc {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  -webkit-display: flex;
-  -webkit-flex-direction: column;
-  -webkit-justify-content: center;
-  align-items: center;
   width: 85%;
-  height: 200rpx;
   margin: 30rpx;
-  background-color: #C28FC2;
-  border-radius: 30rpx;
 }
 
 .paymentContent .section1 .button1 {
