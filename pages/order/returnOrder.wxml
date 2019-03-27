@@ -1,16 +1,16 @@
 <!--pages/order/returnOrder.wxml-->
 <import src='../../pages/templates/dataEmptyTemplate.wxml' />
-<view class="container" style='margin:30rpx 30rpx {{pageBottom}}rpx 30rpx;'>
+<view class="container" style='margin:30rpx 0rpx {{pageBottom}}rpx 0rpx;'>
   <view class='orderList'>
-    <view wx:for="{{orderList}}" wx:key="orderList" class="orderListItem" data-id='{{item.id}}' data-name='{{item.name}}' data-address='{{item.address}}'>
+    <view wx:for="{{orderList}}" wx:key="orderList" class="orderListItem">
       <text>订单编号：{{item.order_no}}</text>
+      <text>自提点：{{item.address}}</text>
       <text>创建时间：{{item.create_time}}</text>
       <text>订单状态：{{item.status_txt}}</text>
-      <view class='goods'>
-        <image src='{{item.img}}' mode='widthFix' />
-        <view class='text1'>{{item.goods_array.name}}</view>
-        <view class='text2'>{{item.goods_price}}</view>
-      </view>
+      <text>绘本：</text>
+      <block wx:for="{{item.goods_info}}" wx:key="subList" wx:for-index="subIndex" wx:for-item="subItem">
+        <text>《{{subItem.goods_name}}》</text>
+      </block>
       <view class='line'></view>
     </view>
   </view>
