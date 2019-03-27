@@ -33,11 +33,7 @@
   -webkit-display: flex;
   -webkit-flex-direction: row;
   -webkit-justify-content: left;
-  width: 100%;
-  font-size: 25rpx;
-  text-align: left;
-  color: #696969;
-  margin: 20rpx;
+  width: 95%;
 }
 
 .orderListItem .goods image {
@@ -48,18 +44,15 @@
 }
 
 .orderListItem .goods .text1 {
-  width: 57%;
-  height: 100%;
-  word-wrap: break-word;
-  padding-left: 30rpx;
-  /* background-color: yellow; */
+  width: 80%;
 }
 
 .orderListItem .goods .text2 {
   text-align: right;
+  width: 20%;
   height: 100%;
   /* background-color: red; */
-  padding-left: 30rpx;
+  /* padding-left: 30rpx; */
   text-decoration: line-through;
 }
 

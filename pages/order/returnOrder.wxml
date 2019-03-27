@@ -9,7 +9,10 @@
       <text>订单状态：{{item.status_txt}}</text>
       <text>绘本：</text>
       <block wx:for="{{item.goods_info}}" wx:key="subList" wx:for-index="subIndex" wx:for-item="subItem">
-        <text>《{{subItem.goods_name}}》</text>
+        <view class='goods'>
+          <text class='text1'>《{{subItem.goods_name}}》</text>
+          <text class='text2'>{{subItem.goods_price}}</text>
+        </view>
       </block>
       <view class='line'></view>
     </view>
