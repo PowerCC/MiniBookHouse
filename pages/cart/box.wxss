@@ -97,11 +97,11 @@
   -webkit-flex-direction: column;
   -webkit-justify-content: center;
   max-width: 90%;
-  margin-top: 20rpx;
 }
 
 .address text {
   margin-left: 30rpx;
+  margin-top: 20rpx;
   font-size: 28rpx;
   color: #696969;
 }

@@ -16,6 +16,7 @@
         <text wx:if='{{selectedAddress.name.length == 0}}'>选择地址</text>
         <view wx:else>
           <text>{{selectedAddress.name}}</text>
+          <text>{{selectedAddress.bizTime}}</text>
           <text>{{selectedAddress.address}}</text>
         </view>
         <image class='rightImage' src="/static/img/btn_right.png" mode="aspectFit" />
