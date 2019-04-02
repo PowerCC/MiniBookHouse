@@ -65,7 +65,7 @@ Page({
     }
 
     let uid = wx.getStorageSync('loginUserInfo').id;
-    if (!uid) {
+    if (!uid || uid.length == 0) {
       wx.redirectTo({
         url: '/pages/authorize'
       })
@@ -349,14 +349,14 @@ Page({
       return;
     }
 
-    if (aid.length == 0) {
-      wx.showToast({
-        title: '请选择地址',
-        icon: 'none'
-      });
+    // if (aid.length == 0) {
+    //   wx.showToast({
+    //     title: '请选择地址',
+    //     icon: 'none'
+    //   });
 
-      return;
-    }
+    //   return;
+    // }
 
     if (_this.data.selectedCount == 0) {
       wx.showToast({
@@ -383,75 +383,75 @@ Page({
       console.log('selectedBoxList: ' + _this.data.selectedBoxList);
       console.log('selectedIndexList: ' + _this.data.selectedIndexList);
 
-      if (uid.length > 0 && aid.length > 0 && gid.length > 0) {
-        wx.showNavigationBarLoading();
-        wx.request({
-          url: app.globalData.baseApi + "outer/createOrder",
-          method: "GET",
-          data: {
-            uid: uid,
-            aid: aid,
-            gid: gid
-          },
-          success(res) {
+      // if (uid.length > 0 && aid.length > 0 && gid.length > 0) {
+      wx.showNavigationBarLoading();
+      wx.request({
+        url: app.globalData.baseApi + "outer/createOrder",
+        method: "GET",
+        data: {
+          uid: uid,
+          aid: aid,
+          gid: gid
+        },
+        success(res) {
 
-            console.log(res.data);
+          console.log(res.data);
 
-            var boxList = _this.data.boxList;
-            if (res.data.code == 200) {
-              for (let i = 0; i < _this.data.selectedBoxList.length; i++) {
-                let id = _this.data.selectedBoxList[i];
-                let index = app.globalData.box.indexOf(id);
+          var boxList = _this.data.boxList;
+          if (res.data.code == 200) {
+            for (let i = 0; i < _this.data.selectedBoxList.length; i++) {
+              let id = _this.data.selectedBoxList[i];
+              let index = app.globalData.box.indexOf(id);
 
-                app.globalData.box.splice(index, 1);
+              app.globalData.box.splice(index, 1);
 
-                wx.setStorageSync('box', app.globalData.box);
+              wx.setStorageSync('box', app.globalData.box);
 
-                _this.data.selectedCount -= 1;
-              }
+              _this.data.selectedCount -= 1;
+            }
 
-              var newBoxList = [];
-              for (let i = 0; i < app.globalData.box.length; i++) {
-                for (let j = 0; j < boxList.length; j++) {
-                  if (app.globalData.box[i] == boxList[j].id) {
-                    newBoxList.push(boxList[j]);
-                  }
+            var newBoxList = [];
+            for (let i = 0; i < app.globalData.box.length; i++) {
+              for (let j = 0; j < boxList.length; j++) {
+                if (app.globalData.box[i] == boxList[j].id) {
+                  newBoxList.push(boxList[j]);
                 }
               }
-
-              console.log('selectedCount: ' + _this.data.selectedCount);
-              console.log(app.globalData.box);
-              console.log(newBoxList);
-
-              _this.setData({
-                selectedCount: _this.data.selectedCount,
-                boxList: newBoxList
-              });
-
-              wx.showToast({
-                title: '订单已提交'
-              });
-            } else {
-              wx.showToast({
-                title: res.data.msg,
-                icon: 'none'
-              });
             }
-          },
-          fail(res) {
-            console.log(res);
-          },
-          complete() {
-            wx.hideNavigationBarLoading();
-            wx.stopPullDownRefresh();
+
+            console.log('selectedCount: ' + _this.data.selectedCount);
+            console.log(app.globalData.box);
+            console.log(newBoxList);
+
+            _this.setData({
+              selectedCount: _this.data.selectedCount,
+              boxList: newBoxList
+            });
+
+            wx.showToast({
+              title: '订单已提交'
+            });
+          } else {
+            wx.showToast({
+              title: res.data.msg,
+              icon: 'none'
+            });
           }
-        });
-      } else {
-        wx.showToast({
-          title: '无法创建订单',
-          icon: 'none'
-        });
-      }
+        },
+        fail(res) {
+          console.log(res);
+        },
+        complete() {
+          wx.hideNavigationBarLoading();
+          wx.stopPullDownRefresh();
+        }
+      });
+      // } else {
+      //   wx.showToast({
+      //     title: '无法创建订单',
+      //     icon: 'none'
+      //   });
+      // }
 
     }
   }
